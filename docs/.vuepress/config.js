@@ -1,6 +1,6 @@
 module.exports = {
     evergreen: true,
-    base: '/dacs/',
+    base: '/docs/',
     locales: {
       '/': {
         lang: 'zh-CN',
