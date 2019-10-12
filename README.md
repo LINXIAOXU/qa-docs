@@ -12,11 +12,8 @@ yarn
 # 开发环境
 yarn docs:dev
 
-# 手动复制 *.md 文件到 ./docs/.vuepress/public 目录下
-yarn sync-docs
-
 # 生产环境
-yarn build
+yarn docs:build
 ```
 
 Vuepress 文档: https://vuepress.vuejs.org/zh/
