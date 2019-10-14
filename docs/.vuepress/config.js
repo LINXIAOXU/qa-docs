@@ -20,7 +20,7 @@ module.exports = {
               {
                 title: '零碎知识',
                 children: [
-                  '/others/vuepresss.md'
+                  '/others/vuepress.md'
                 ]
               }
             ]
