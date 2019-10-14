@@ -1,6 +1,6 @@
 module.exports = {
     evergreen: true,
-    base: '/Docs/',
+    base: '/qa-docs/',
     locales: {
       '/': {
         lang: 'zh-CN',
