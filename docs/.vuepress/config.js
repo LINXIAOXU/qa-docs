@@ -18,9 +18,9 @@ module.exports = {
           sidebar: {
             '/': [
               {
-                title: '测试点',
+                title: '零碎知识',
                 children: [
-                  '/tests/read.md'
+                  '/others/vuepresss.md'
                 ]
               }
             ]
