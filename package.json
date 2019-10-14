@@ -3,6 +3,7 @@
     "vuepress": "^1.2.0"
   },
   "license": "ISC",
+  "build": "node packages/java-parser/scripts/unicode.js packages/java-parser/resources/Unicode/UnicodeData.txt; prettier --write packages/java-parser/src/unicodesets.js; node packages/java-parser/scripts/gen-diagrams.js", 
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
