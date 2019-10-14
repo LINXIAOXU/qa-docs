@@ -4,6 +4,7 @@
 
 ```bash
 yarn
+npm install
 ```
 
 ## 运行
