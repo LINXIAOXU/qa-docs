@@ -25,6 +25,12 @@ module.exports = {
                   '/others/charles.md',
                   '/others/test-own-study.md'
                 ]
+              },
+              {
+                title: '测试基础',
+                children: [
+                  '/base/test-definition.md'
+                ]
               }
             ]
           }
