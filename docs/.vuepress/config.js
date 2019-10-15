@@ -22,7 +22,8 @@ module.exports = {
                 children: [
                   '/others/vuepress.md',
                   '/others/git.md',
-                  '/others/charles.md'
+                  '/others/charles.md',
+                  '/others/test-own-study.md'
                 ]
               }
             ]
