@@ -1,10 +1,21 @@
 # git 相关知识
 
-## git提交代码 忽略上传node_modules文件夹
+## git 本地新建项目提交到远程仓库
 
-1. 在项目的根目录底下，新建.gitignore
-2. 打开.gitignore，添加node_modules
-3. 如果在远程仓库中，已经上传了node_modules，则执行git rm -r -f --cached **/node_modules/ 删除远程仓库的node_modules，然后提交代码即可
+1. 在git服务器上创建一个仓库，这里使用GitHub创建一个仓库
+
+![仓库](../assets/git/create-repo.png)
+
+2. 按照步骤2中的命令执行
+
+```bash
+echo "# test" >> README.md # echo表示输出# test到README.md中
+git init # 表示初始化本地已有项目
+git add README.md # 将README.md添加到缓存区
+git commit -m "first commit" # 将缓存区的内容提交到本地仓库
+git remote add origin git@github.com:LINXIAOXU/test.git # 提交到远程分支缓存区
+git push -u origin master # 提交本地分支到远程分支，第二次提交只需要执行“git push”命令
+```
 
 ## git 克隆项目
 
@@ -53,7 +64,7 @@ git add . # 也可以指定文件名执行该命令，如 git add README.md 代�
 2. 把对文件的改动提交到本地git服务器。
 
 ```bash
-git commit -m "message" # -m 参数表示可以直接输入后面的message，message可以简略写这次改动文件的原因或者内容，将内容提交到缓存区
+git commit -m "message" # -m 参数表示可以直接输入后面的message，message可以简略写这次改动文件的原因或者内容，将缓存区的内容提交到本地仓库
 ```
 
 3. 把本地git服务器的版本库里新分支的内容全部传送给远程版本库，让远程版本库和本地git服务器的版本库内容一致。
@@ -82,6 +93,12 @@ git pull  # pull可以理解为把远程版本库的内容拉过来至本地
 git push -d origin [分支名] # 如 git push -d origin lml-git ,表示删除远程仓库的lml-git分支
 ```
 
+## 查看提交状态
+
+```bash
+git status # 可以用来查看仓库的状态，nothing to commit, working tree clean  表示没有未提交的文件
+```
+
 ## 查看本机的git 用户名和邮箱
 
 ```bash
@@ -105,3 +122,9 @@ git config user.name [用户名] # 如 git config user.name LML ,表示修改用
 
 git config user.email [邮箱] # 如 git config user.name 100*****08@qq.com ,表示修改邮箱为100*****08@qq.com
 ```
+
+## git提交代码 忽略上传node_modules文件夹
+
+1. 在项目的根目录底下，新建.gitignore
+2. 打开.gitignore，添加node_modules
+3. 如果在远程仓库中，已经上传了node_modules，则执行git rm -r -f --cached **/node_modules/ 删除远程仓库的node_modules，然后提交代码即可
