@@ -1,3 +1,22 @@
+---
+title: Blogging Like a Hacker
+lang: en-US
+home: true
+#heroImage: /hero.png
+heroText: 个人知识学习储备处
+tagline: 学习成为合格的软件测试工程师
+actionText: 查看文档 →
+actionLink: /base/test-definition.md
+#features:
+#- title: 第一阶段  测试基础
+#  details: 测试基础是软件测试最最最重要的部分，只要你是做测试，不管是什么测试，测试的基础、理论知识都是必须学会的。最好是能够理解，并能够用自己的话给复述出来。
+#- title: 第二阶段  工具学习
+#  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
+#- title: 第三阶段  代码学习
+#  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+footer: LML | Copyright © 2019-present Evan You
+---
+
 # 测试自学路程
 
 ## 第一阶段  测试基础
