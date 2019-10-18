@@ -7,11 +7,11 @@ heroText: 个人知识学习储备处
 tagline: 学习成为合格的软件测试工程师
 actionText: 查看文档 →
 actionLink: /base/test-definition.md
-#features:
-#- title: 第一阶段  测试基础
-#  details: 测试基础是软件测试最最最重要的部分，只要你是做测试，不管是什么测试，测试的基础、理论知识都是必须学会的。最好是能够理解，并能够用自己的话给复述出来。
-#- title: 第二阶段  工具学习
-#  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
+features:
+- title: 软件测试生命周期
+  details: 从测试项目计划建立到BUG提交的整个测试过程，包括软件项目测试计划，测试需求分析，测试用例设计，测试用例执行，BUG提交五个阶段。
+- title: 软件生命周期
+  details: 软件的产生直到报废或停止使用的生命周期。软件生命周期内有问题定义、可行性分析、总体描述、系统设计、编码、调试和测试、验收与运行、维护升级到废弃等阶段，也有将以上阶段的活动组合在内的迭代阶段，即迭代作为生命周期的阶段。
 #- title: 第三阶段  代码学习
 #  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
 footer: LML | Copyright © 2019-present Evan You
