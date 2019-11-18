@@ -31,6 +31,7 @@ module.exports = {
                   '/base/test-definition.md',
                   '/base/test-classification.md',
                   '/base/test-plan.md',
+                  '/base/bug.md',
                   '/base/test-case-design.md'
                 ]
               }
