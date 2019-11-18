@@ -99,6 +99,13 @@ git push -d origin [分支名] # 如 git push -d origin lml-git ,表示删除远
 git status # 可以用来查看仓库的状态，nothing to commit, working tree clean  表示没有未提交的文件
 ```
 
+## 撤回修改的文件
+
+```bash
+git status # 查看修改的文件
+git checkout . # 撤回修改的文件
+```
+
 ## 查看本机的git 用户名和邮箱
 
 ```bash
