@@ -34,6 +34,12 @@ module.exports = {
                   '/base/bug.md',
                   '/base/test-case-design.md'
                 ]
+              },
+              {
+                title: '代码学习',
+                children: [
+                  '/code/mocha.md'
+                ]
               }
             ]
           }
