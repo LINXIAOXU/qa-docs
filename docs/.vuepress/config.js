@@ -40,6 +40,14 @@ module.exports = {
                 children: [
                   '/code/mocha.md'
                 ]
+              },
+              {
+                title: 'Linux学习',
+                children: [
+                  '/linux/other.md',
+                  '/linux/awk.md',
+                  '/linux/sed.md'
+                ]
               }
             ]
           }
