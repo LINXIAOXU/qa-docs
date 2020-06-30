@@ -10,6 +10,17 @@ module.exports = {
     },
     themeConfig: {
       sidebarDepth: 1,
+      nav: [
+        { 
+          text: '分类',
+          items: [
+            { text: '零碎知识', link: '/others/vuepress.md' },
+            { text: '测试基础', link: '/base/test-definition.md' },
+            { text: '代码学习', link: '/code/mocha.md' },
+            { text: 'Linux学习', link: '/linux/other.md' }
+          ]
+        },
+      ],
       locales: {
         '/': {
           label: '简体中文',
