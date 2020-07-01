@@ -42,14 +42,17 @@ module.exports = {
                   '/base/test-definition.md',
                   '/base/test-classification.md',
                   '/base/test-plan.md',
+                  '/base/test-points.md',
+                  '/base/test-case-design.md',
                   '/base/bug.md',
-                  '/base/test-case-design.md'
+                  '/base/test-report.md',
                 ]
               },
               {
                 title: '代码学习',
                 children: [
-                  '/code/mocha.md'
+                  '/code/mocha.md',
+                  '/code/selenium.md'
                 ]
               },
               {
