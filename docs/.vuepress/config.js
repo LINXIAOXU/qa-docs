@@ -33,7 +33,8 @@ module.exports = {
                 children: [
                   '/others/vuepress.md',
                   '/others/git.md',
-                  '/others/charles.md'
+                  '/others/charles.md',
+                  '/others/http-request.md'
                 ]
               },
               {
@@ -59,6 +60,8 @@ module.exports = {
                 title: 'Linux学习',
                 children: [
                   '/linux/other.md',
+                  '/linux/find.md',
+                  '/linux/grep.md',
                   '/linux/awk.md',
                   '/linux/sed.md'
                 ]
