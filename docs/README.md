@@ -43,7 +43,7 @@ footer: LML | Copyright © 2019-present Evan You
 4. MySQL、ORACLE数据库的基本操作和常用sql语句。
 5. adb命令(常用命令，如何抓取移动端日志分析)
 6. Charles抓包工具的使用(如何抓包分析、如果修改接口字段内容，如何替换接口全部数据，如何控制低网速)。
-7. postman接口测试工具的使用，接口测试概念、接口测试的定位、如何做接口测试、cookies、session介绍、项目中如何开展接口测试、接口测试实战。
+7. jmeter、sopaUI、postman接口测试工具的使用，接口测试概念、接口测试的定位、如何做接口测试、cookies、session介绍、项目中如何开展接口测试、接口测试实战。
 8. jmeter和loadrunner性能测试工具的使用。
 
 ## 第三阶段  代码学习
