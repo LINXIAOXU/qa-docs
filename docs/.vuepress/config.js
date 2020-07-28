@@ -54,7 +54,8 @@ module.exports = {
                 title: '代码学习',
                 children: [
                   '/code/mocha.md',
-                  '/code/selenium.md'
+                  '/code/selenium.md',
+                  '/code/python.md'
                 ]
               },
               {
