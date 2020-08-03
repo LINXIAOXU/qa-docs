@@ -278,3 +278,191 @@ print(alist)
 ```
 
 ## 函数
+
+### 定义函数和调用函数
+
+```python
+# 通过关键字def来定义函数，定义函数时，圆括号中的参数称为“形式参数”，而调用函数时传递的数据称为“实际参数”。
+def min_max(arr):
+    m = arr[0]
+    M = arr[0]
+    for e in arr:
+        if e < m:
+            m = e
+        if e > m:
+            M = e
+    return m, M
+
+ret = min_max([36, 2, 18, 3, 99])
+print(ret)          # (2, 99)
+print(ret[0])       # 2
+print(ret[1])       # 99
+```
+
+### 全局变量和局部变量
+
+● 函数内部可访问但不能直接修改全局变量，必须用关键字global声明才能修改全局变量。
+
+● 局部变量和外部变量同名，在函数内部通过这个名字访问的都是局部变量，除非用global声明为全局变量。函数外部不能访问局部变量
+
+```python
+# 函数外部声明的变量，称为全局变量，这意味着全局变量在函数内部或外部都可以调用
+x = "global"
+def fun():
+    print("x inside:", x)
+
+fun()                            # x inside: global
+print("x outside:", x)           # x outside: global
+
+# 如果试图在一个函数里修改一个全局变量，下面例子中，“x=”就相当于定义了局部变量，因此，这个函数里的x就不是全局变量的x了，而等号右侧的“x*2”相当于试图使用这个还未定义的局部变量x，所以产生了下述的错误
+x = "global"
+def fun():
+	x = x*2
+    print(x)
+
+fun()                # IndentationError: unindent does not match any outer indentation level
+
+# 可以使用关键字global声明x是一个全局变量
+x = "global"
+def fun():
+    global x
+    x = x*2
+    print(x)
+
+fun()               # globalglobal
+
+# 可以在一个函数内部定义一个变量，这个变量只属于该函数，外部无法使用这个变量，该变量称为局部变量
+def fun():
+    y = "local"
+
+fun()
+print(y)       # SyntaxError: invalid syntax Exited with error status 1
+
+# 如果函数内部声明的局部变量和外部变量同名，则内部的局部变量会隐藏全局变量，即在函数内部使用这个名字访问的总是局部变量
+x = 5
+def fun():
+    x = 10
+    print("local x:", x)        
+
+fun()                    # local x: 10
+print("global x:", x)    # global x: 5
+```
+
+### 函数的参数
+
+● 函数的形参可以有默认值，称为默认形参，形参名前有一个＊的称为可变形参，形参名前有两个＊＊的称为字典形参。可变形参必须在非默认形参的后面，默认形参必须在非默认形参和可变形参的后面，字典形参必须放在最后面。
+
+● 函数定义中的形参是有顺序的，实参可以按照位置传递给形参，称为位置实参，也可以按照形参名=实参的方式将实参传递给形参，称为关键字实参。关键字实参可以任意顺序排列。
+
+● 可以给可变形参传递多个实参，这些实参被打包成一个tuple对象传递给可变形参。函数可以像普通tuple对象一样访问可变形参中的实参。
+
+● 可以采用键-值的方式将字典实参传递给字典形参。这些键-值实参被打包成一个字典对象传给字典形参。函数可以像普通字典对象一样访问字典形参中的每个键-值实参。
+
+● 假如要传递给函数的实参放在一个tuple或list对象中，则可以通过在指向这个对象的变量名前加＊的解封实参列表方式传递给被调用函数，list或tuple中的这些实参将被解封传递给被调用函数的形参。假如要传给函数的实参放在一个dict对象中，则可以通过在指向这个对象的变量名前加＊＊的解封实参列表方式将字典实参传递给形参。
+
+```python
+# 函数的形参中有默认值，称为“默认形参”
+def date(year, month='01', day='01'):
+    print(year, month, day)
+
+date(2020)                  # 2020 01 01
+date(2020, '07')            # 2020 07 01
+date(2020, '07', '29')      # 2020 07 29
+
+# 默认形参后面不能再有非默认形参
+def f(a, b=2, c):
+    pass                    # SyntaxError: non-default argument follows default argument
+
+# 默认形参的默认值始终指向的都是初始化的那个对象
+def f(var, arr=[]):
+    arr.append(var)
+    return arr
+
+print(f(1))                # [1]
+print(f(2))                # [1, 2]
+
+# 如果想每次调用函数时默认形参指向的是不同的对象，则可以采用下面的技巧
+def f(var, arr=None):
+    if arr==None:
+        arr=[]
+    arr.append(var)
+    return arr
+
+print(f(1))               # [1]
+print(f(2))               # [2]
+
+def f(var):
+    arr=[]
+    arr.append(var)
+    return arr
+
+print(f(1))               # [1]
+print(f(2))               # [2]
+
+# 位置实参和关键字实参
+def hello(name, msg="Good morning!"):
+    print("hello!", name+','+msg)
+
+# 位置实参
+hello("小白")                    # hello! 小白,Good morning!
+hello("老张", "你好吗？")          # hello! 老张,你好吗？
+
+# 关键字实参
+hello(name="小白")                     # hello! 小白,Good morning!
+hello(msg="你好吗？", name="小白")      # hello! 小白,你好吗？
+hello(name="老张", msg="你好吗？")      # hello! 老张,你好吗？
+hello("李平", msg="你好吗？")           # hello! 李平,你好吗？
+
+# 任意形参（可变形参） - 如果不知道将来使用者调用这个函数时，传递的实际参数个数，则可以在定义函数时，在这个形参名前加一个星号*
+def hello(*names):
+	print("哈喽：")
+	for name in names:   # 对比可变形参names元组tuple的每个元素name
+		print(name)
+	print()
+	
+hello("小白", "老张")               # 哈喽：(/n)小白(/n)老张
+hello("小白", "老张", "老王")        # 哈喽：(/n)小白(/n)老张(/n)老王
+
+# 注意：函数定义中的可变形参最多只能一个，默认形参必须在可变形参后面
+
+# 字典形参 - 一个函数中最多只能包含一个字典形参，且必须在任意形参后
+def f(x, *y, **z):
+	print("x:", x)
+	# 访问任意形参中的参数
+	for e in y:
+		print(e)
+	print()
+	# 访问字典形参中的参数
+	for key in z:
+		print(key,":",z[key])
+		
+f("hello", "li ping", 60.5, year="2018", month=7, day=25)
+# x: hello
+# li ping
+# 60.5
+
+# year : 2018
+# month : 7
+# day : 25
+
+# 解封参数列表 - 将list和tuple变量名前用一个*作为实参传给被调用函数，Python解释器会自动从这个list或tuple对象中解析出每个实参并传递给被调用函数。
+def add(a, b):
+	return a+b
+
+ab = [3, 5]
+print(add(*ab))            # 8
+
+def f(name, score=0.0):
+	print("the name:", name)
+	print("the score:", score)
+	
+d = {"name":"lipeng","score":60.5}
+f(**d)  # **d将字典中的参数分离出来
+# the name: lipeng
+# the score: 60.5
+```
+
+### 递归函数
+
+```python
+```

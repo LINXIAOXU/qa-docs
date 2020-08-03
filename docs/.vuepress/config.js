@@ -67,7 +67,13 @@ module.exports = {
                   '/linux/awk.md',
                   '/linux/sed.md'
                 ]
-              }
+              },
+              {
+                title: '读书笔记',
+                children: [
+                  '/notes/2020-08-03.md'
+                ]
+              },
             ]
           }
         }
