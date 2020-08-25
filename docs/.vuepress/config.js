@@ -33,6 +33,7 @@ module.exports = {
                 children: [
                   '/others/vuepress.md',
                   '/others/git.md',
+                  '/others/redis.md',
                   '/others/charles.md',
                   '/others/http-request.md',
                   '/others/attention-point.md'
