@@ -1,6 +1,6 @@
 # Python
 
-## 基础学习
+## 一. 基础学习
 
 1. 编写Python程序的两种方式，交互式解释器执行和运行脚本文件。
 2. Python是动态类型语言，只有运行时根据变量引用的对象才能知道这个对象的数据类型。
@@ -18,7 +18,7 @@ E记法
 3.8E16或者3.8e16读作“3.8指数16”，等同于3.8x10的16次方
 ```
 
-### 变量
+### 1.1 变量
 
 ```python
 teacher = "Mr.Lin"
@@ -26,7 +26,7 @@ teacher = "Mr.Mei" # 在python中你可以将变量重新指派到新的地址�
 print(teacher)   # "Mr.Mei"
 ```
 
-### list - 列表
+### 1.2 list - 列表
 
 ```python
 # list是一个数据元素的有序序列，定义列表时用一对左右方括号[]包围，元素之间用逗号隔开。list中的元素可以是不同的类型，是一个有序序列，有唯一下标。可以用下标运算符[]访问它的一个元素或一系列连续的元素。
@@ -56,7 +56,7 @@ my_list[2:4] = []   # 相当于删除了[2:4]之间的元素，不包括下标�
 print(my_list)      # [2, 3.14, 'hello']
 ```
 
-### tuple - 元组
+### 1.3 tuple - 元组
 
 ```python
 # tuple是一个有序序列，tuple是不可修改的，另外，定义tuple用的是圆括号，而不是方括号
@@ -72,7 +72,7 @@ t[1] = 'hello'     # TypeError: 'tuple' object does not support item assignment
 # 注意：只有一个元素时，最后必须加一个逗号，如(25, )表示一个tuple，而(25)表示一个整数
 ```
 
-### set - 集合
+### 1.4 set - 集合
 
 ```python
 # set是不包含重复元素的无序集合。用{}来包围，以逗号隔开的一组元素，因为集合无序，所以不能使用下标操作其中的元素
@@ -89,7 +89,7 @@ s = {2, 3, [5, 8]}    # TypeError: unhashable type: 'list'
 b = {1,3.14,'hello',{2,3}}   # TypeError: unhashable type: 'set'
 ```
 
-### dict - 字典
+### 1.5 dict - 字典
 
 ```python
 # dict是一个“键 - 值”对的无序集合。每个元素都以“键：值”的形式存储
@@ -100,7 +100,7 @@ print(d)           # {1: 'value', 'key': 2, 'hello': [4, 7]}
 print(d['hello'])  # [4,7]
 ```
 
-### 类型转换
+### 1.6 类型转换
 
 ```python
 a = 24
@@ -126,7 +126,7 @@ type(a) # <type 'str'>
 type(b) # <type 'float'>
 ```
 
-### ==和is运算符的比较
+### 1.7 ==和is运算符的比较
 
 ```python
 a = 1000
@@ -135,7 +135,7 @@ print(a==b)    # true，==比较两个对象的值是否相等
 print(a is b)  # false，is判断是两个对象是否为同一个
 ```
 
-### 基本运算
+### 1.8 基本运算
 
 ```python
 print(2+"2")  # 报错
@@ -156,7 +156,7 @@ print(3**5)  # 243  指数
 print(3%2)  # 1   取余
 ```
 
-### 自增和自减
+### 1.9 自增和自减
 
 ```python
 number = 7
@@ -168,7 +168,7 @@ number -= 1
 print(number) # 6
 ```
 
-### input() - 输入函数
+### 1.10 input() - 输入函数
 
 ```python
 # 可以通过内置函数input()从键盘输入数据
@@ -176,7 +176,7 @@ name = input("请输入你的用户名：")
 print(name)
 ```
 
-### print() - 输出函数
+### 1.11 print() - 输出函数
 
 ```python
 print(1, end=' ')   # 函数print()默认输出后换行，可以通过设置关键字参数end的值，改变其行为
@@ -185,7 +185,7 @@ print(3, end=' ')   # 1 23
 print("Hello world!", 2)  # Hello world! 2
 ```
 
-### if - 条件语句
+### 1.12 if - 条件语句
 
 ```python
 score = int(input("请输入学生成绩："))
@@ -201,7 +201,7 @@ else:
 	print("优秀")
 ```
 
-### while、for - 循环语句
+### 1.13 while、for - 循环语句
 
 ```python
 # while
@@ -236,7 +236,7 @@ t = tuple(range(2, -8, -2))
 print(t)                     # (2, 0, -2, -4, -6)
 ```
 
-### 二分查找法
+### 1.14 二分查找法
 
 ```python
 def binarySearch(alist, value):
@@ -259,7 +259,7 @@ print(binarySearch(testlist, 25))   # 3
 print(binarySearch(testlist, 13))   # -1
 ```
 
-### 冒泡排序
+### 1.15 冒泡排序
 
 ```python
 alist=[49,38,27,97,76,13,27,49]
@@ -277,9 +277,9 @@ for i in range(len(alist)-1,0, -1):
 print(alist)
 ```
 
-## 函数
+## 二. 函数
 
-### 定义函数和调用函数
+### 2.1 定义函数和调用函数
 
 ```python
 # 通过关键字def来定义函数，定义函数时，圆括号中的参数称为“形式参数”，而调用函数时传递的数据称为“实际参数”。
@@ -299,7 +299,7 @@ print(ret[0])       # 2
 print(ret[1])       # 99
 ```
 
-### 全局变量和局部变量
+### 2.2 全局变量和局部变量
 
 ● 函数内部可访问但不能直接修改全局变量，必须用关键字global声明才能修改全局变量。
 
@@ -348,7 +348,7 @@ fun()                    # local x: 10
 print("global x:", x)    # global x: 5
 ```
 
-### 函数的参数
+### 2.3 函数的参数
 
 ● 函数的形参可以有默认值，称为默认形参，形参名前有一个＊的称为可变形参，形参名前有两个＊＊的称为字典形参。可变形参必须在非默认形参的后面，默认形参必须在非默认形参和可变形参的后面，字典形参必须放在最后面。
 
@@ -462,7 +462,7 @@ f(**d)  # **d将字典中的参数分离出来
 # the score: 60.5
 ```
 
-### 递归函数
+### 2.4 递归函数
 
 如果一个函数在其内部存在调用该函数自身的语句，就称为递归函数
 
@@ -475,7 +475,7 @@ def fact(n):
 print(fact(4))                # 24
 ```
 
-### 函数对象和lambda表达式
+### 2.5 函数对象和lambda表达式
 
 函数也是对象，即function类型的对象，因此可以和其他对象如int、list对象一样使用。用一个变量引用一个函数；将函数作为另一个函数的参数；从一个函数里返回另外一个函数；将函数存储在各种数据结构中。
 
@@ -609,23 +609,23 @@ less_than_zero = tuple(ret)
 print(less_than_zero)                # (-5, -4, -3, -2, -1)
 ```
 
-### 模块和包
+### 2.6 模块和包
 
-函数是可以重复调用的程序块。在程序中使用他人已经编写好的函数代码，或者使自己编写的函数能被其他程序使用的方法是：导入（import）该函数所在的模块（mudule）。
+● 函数是可以重复调用的程序块。在程序中使用他人已经编写好的函数代码，或者使自己编写的函数能被其他程序使用的方法是：导入（import）该函数所在的模块（mudule）。
 
-导入的模块只要说明模块名即可，不能有文件扩展名．py。程序代码中如果要使用模块中的对象，如函数，则需要用．运算符，即使用“模块名．函数名”访问具体的函数。
+● 导入的模块只要说明模块名即可，不能有文件扩展名．py。程序代码中如果要使用模块中的对象，如函数，则需要用．运算符，即使用“模块名．函数名”访问具体的函数。
 
-后缀是．py的Python程序文件称为模块。可以用关键字import导入一个模块（如xxx）到程序中，模块xxx中的名字如name，可以通过xxx.name访问。import xxx as yy用于在导入模块xxx时给模块xxx起一个别名yy，访问模块中的名字就要用这个别名作为前缀
+● 后缀是．py的Python程序文件称为模块。可以用关键字import导入一个模块（如xxx）到程序中，模块xxx中的名字如name，可以通过xxx.name访问。import xxx as yy用于在导入模块xxx时给模块xxx起一个别名yy，访问模块中的名字就要用这个别名作为前缀
 
-from ... import可以导入模块中的一个名字（如from xxx import name导入模块xxx的单个名字name），也可以导入模块中的所有名字（如from xxximport *导入模块中的所有名字）
+● from ... import可以导入模块中的一个名字（如from xxx import name导入模块xxx的单个名字name），也可以导入模块中的所有名字（如from xxximport *导入模块中的所有名字）
 
-包就是一个包含__init__.py文件的文件夹。这个__init__.py可以是空的文件，也可以包含一些Python命令（如执行一些初始化）。包将所有模块文件组织成一个层次结构
+● 包就是一个包含__init__.py文件的文件夹。这个__init__.py可以是空的文件，也可以包含一些Python命令（如执行一些初始化）。包将所有模块文件组织成一个层次结构
 
-sys模块是Python解释器交互的接口，如向脚本程序传递命令行参数，添加工作路径等
+● sys模块是Python解释器交互的接口，如向脚本程序传递命令行参数，添加工作路径等
 
-random随机数模块可以用于生成各种随机数，如从一个序列对象里随机选择元素，或者得到一个序列的随机排列等
+● random随机数模块可以用于生成各种随机数，如从一个序列对象里随机选择元素，或者得到一个序列的随机排列等
 
-Python提供了一个专门用于绘图的工具包Matplotlib。
+● Python提供了一个专门用于绘图的工具包Matplotlib。
 
 ```python
 # import 模块名
@@ -687,10 +687,147 @@ f()             # 0.134 0.847 0.764 0.255 0.495        2 2 5
 f()             # # 0.134 0.847 0.764 0.255 0.495        2 2 5 
 ```
 
-python以包的形式将相关模块文件组合在不同文件中，包就是一个包含__init__.py文件的文件夹，包名就是文件名。
-
 __all__总结：
 
 ● 如果没有为一个包定义__all__，则当使用import *时不会导入任何对象。
 
 ● 如果没有为一个模块定义__all__，则当使用import *时将导入模块中的所有对象，否则仅导入__all__中定义的对象。
+
+## 三. 内置数据类型
+
+● Python的数值类型有int、float、complex、bool。
+
+● 通过在数值前面加前缀可表示不同进制的数值。内置函数bin（）、oct（）、hex（）可分别用于得到二进制、八进制、十六进制数值对应的字符串。
+
+● 不同类型的数值参与运算时，有时会自动进行隐式类型转换，有时则需要进行显式强制类型转换。内置函数int（）、float（）、complex（）将其他类型的值，如字符串类型str的值强制显式类型转换为int、float、complex类型的值。内置函数str（）可将其他类型的值转化为字符串类型。
+
+● 浮点数只能用二进制近似表示。Python提供了用于分数计算的Fraction类型。
+
+● math模块、cmath模块的函数可以进行各种数值计算。
+
+### 3.1 数值
+
+```python
+# 可以用一个内置函数isinstance（）判断一个对象是否为某种类型的对象
+print(isinstance(2, int))                       # True
+print(isinstance(2.0, int))                     # False
+print(isinstance(2+3.9j, complex))              # True
+print(isinstance(False, bool))                  # True
+
+# Python可通过在数的前面加前缀0b或0B来表示二进制数，加前缀0o或0O来表示八进制数，加前缀0x或0X来表示十六进制数
+print(0b0110100101)                             # 421
+print(0O703516)                                 # 231246
+print(0X7F3BA)                                  # 521146
+
+# 可以用内置函数bin（）、oct（）、hex（）分别得到一个数的二进制、八进制、十六进制对应的字符串
+print(bin(412))                                 # 0b110011100
+print(oct(412))                                 # 0o634
+print(hex(412))                                 # 0x19c
+
+# 浮点数的精度问题
+print((2.3-2.2)==0.1)                           # False
+
+# 由于计算机只能用二进制近似表示十进制小数，因此，它们是不相等的
+print(2.3-2.2)                                  # 0.09999999999999964
+print(0.1)                                      # 1
+
+# 另外，由于float型数值的小数部分最多15位，对于一些关键的应用，如金融、科学计算等需要更高精度的场合，Python提供了更高精度的Decimal类
+import decimal 
+print(0.1)                                      # 0.1
+print(decimal.Decimal(0.1))                     # 0.1000000000000000055511151231257827021181583404541015625
+
+# Python还提供了用于分数计算的Fraction类
+from fractions import Fraction as F
+print(F(1,3))                                   # 1/3
+print(1/F(5,6))                                 # 6/5
+print(F(1,3)+F(3,4))                            # 13/12
+
+# 可以用Python内置的函数做一些数值计算
+print(abs(-3.4))                                # 3.4
+print(min(3.4, 2.8))                            # 2.8
+print(max(3.4, 2.8))                            # 3.4
+print(pow(0.3, 4))                              # 0.0081
+print(round(2.8))                               # 3
+print(round(2.3))                               # 2
+print(round(-2.3))                              # -2
+
+# math模块提供对C语言标准库定义的数学函数的访问。该模块使用浮点值进行复杂的数学运算，包括对数和三角函数的运算。这些功能不能用于复数，如果需要支持复数，则需使用另一个数学模块——cmath模块中相同名称的函数。
+# 特殊的常量
+import math
+print('   π: {:.30f}'.format(math.pi))          #    π: 3.141592653589793115997963468544
+print('   e: {:.30f}'.format(math.e))           #    e: 2.718281828459045090795598298428
+
+# 异常值：浮点计算可以产生两个异常值：inf和nan，也可能抛出一个OverflowError异常
+import math
+x = 10.0 ** 200                                 # 浮点数超过float类数值表示范围时，产生的结果是inf（无穷大）
+y = x*x
+print(y, '\t', math.isinf(x*x))                 # inf 	 True
+
+import math
+x = 10.0 ** 200                                 # 并不是所有溢出的值都用inf表示
+x ** 2                                          # 会抛出异常：“OverflowError:（34, 'Result too large'）”。数值计算的结果是inf还是抛出溢出异常OverflowError是由底层的C Python决定的
+
+import math
+x = (10.0 ** 200) * (10.0 ** 200)               # 如果除inf的结果是未定的，则结果是nan（未定的数值）。因为nan不能和其他值进行比较，所以检查nan只能使用函数isnan（）
+y = x/x
+print(y, '\t', math.isnan(y))                   # nan 	 True
+
+# 可以使用函数isfinite（）来检查一个数值是常规数值还是特殊值inf或nan
+import math
+for f in [math.pi, math.e, math.inf, math.nan]:
+    print('（{:5.2f} {!s}）'.format(f, math.isfinite(f)), end=',')    # （ 3.14 True）,（ 2.72 True）,（  inf False）,（  nan False）,
+
+# 比较两个浮点数是否相等实际上就是看它们差的绝对值是否足够小，Python的math模块提供了函数isclose（）
+# 格式：isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)默认形参rel_tol和abs_tol分别表示相对误差和绝对误差
+# 用于相对误差比较abs（a-b）<=rel_tol * max（abs（a）, abs（b））时：
+import math
+a = 1.00
+b = 0.90
+rel_tol=0.10
+print(abs(a-b) <= rel_tol * max(abs(a), abs(b)), end=',')   
+print(math.isclose(a, b, rel_tol=rel_tol))            # True,True
+a = 0.10
+b = 0.09
+print(math.isclose(a, b, rel_tol=rel_tol), end=',')
+print(abs(a-b) <= rel_tol * max(abs(a), abs(b)))      # False,False
+
+import math
+abs_tol = 1e-07
+a = 1.00
+b = 1.0000001
+print(abs(a-b) <= abs_tol, end=',')
+print(math.isclose(a, b, abs_tol=abs_tol))            # False,False
+a = 1.00
+b = 1.00000001
+print(math.isclose(a, b, abs_tol=abs_tol), end=',')
+print(abs(a-b) <= abs_tol)                           # True,True
+
+# 浮点数转为整数
+# 函数trunc()截断浮点数的小数部分，函数floor()将浮点数转换为比它小的最大整数，函数ceil()将浮点数转换为比它大的最小整数
+import math
+HENDINGS = ('i', 'int', 'trunk', 'floor', 'ceil')
+print('{:^5} {:^5} {:^5} {:^5} {:^5}'.format(*HEANDNGS))
+fmt = '{:5.1f} {:5.1f} {:5.1f} {:5.1f} {:5.1f}'
+VSLUES = [-1.5, -1.8, 1.2]
+for i in VALUES:
+    print(fmt.format(i, int(i), math.trunc(i), math.floor(i), math.ceil(i)))
+#  i    int  trunk floor ceil 
+#  -1.5  -1.0  -1.0  -2.0  -1.0
+#  -1.8  -1.0  -1.0  -2.0  -1.0
+#   1.2   1.0   1.0   1.0   2.0
+
+# 平方根、指数、对数
+# 函数sqrt（x）用于专门计算一个数x的平方根
+import math
+print(math.sqrt(3))                              # 1.7320508075688772
+
+# 幂函数pow（x, y）计算x的y次方，其功能类似x**y，但pow（x, y）可以保证按照浮点数运算，而x ** y只可以返回一个int或一个float
+x=2.1
+y=3.2
+print(x**y)                                     # 10.74241047739471
+print(math.pow(x,y))                            # 10.74241047739471
+print(2**3)                                     # 8
+print(math.pow(2,3))                            # 8.0
+```
+
+### 3.2 列表

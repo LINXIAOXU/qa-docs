@@ -9,7 +9,7 @@ module.exports = {
       }
     },
     themeConfig: {
-      sidebarDepth: 1,
+      sidebarDepth: 2,
       nav: [
         { 
           text: '分类',
