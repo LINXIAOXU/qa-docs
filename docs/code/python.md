@@ -464,5 +464,233 @@ f(**d)  # **d将字典中的参数分离出来
 
 ### 递归函数
 
+如果一个函数在其内部存在调用该函数自身的语句，就称为递归函数
+
 ```python
+def fact(n):
+    if n == 1:
+        return 1             # 如果n等于1，就直接返回值1
+    return n * fact(n - 1)    # 如果n大于1，就是n和fact(n-1)的乘积
+
+print(fact(4))                # 24
 ```
+
+### 函数对象和lambda表达式
+
+函数也是对象，即function类型的对象，因此可以和其他对象如int、list对象一样使用。用一个变量引用一个函数；将函数作为另一个函数的参数；从一个函数里返回另外一个函数；将函数存储在各种数据结构中。
+
+● 函数是function类型的对象，和其他对象一样，函数对象既可以作为函数参数、返回值，也可以存储在数据结构里。
+
+● lambda函数是一个匿名函数，主要用于单行代码的函数，经常用作其他函数的参数。
+
+● 以函数作为参数的一些有用的内置函数如map（）、filter（）。
+
+```python
+# 具备对象的三个属性，id、type和值
+def square(x):
+    return x*x
+
+print(id(square))          # 139999503139312
+print(type(square))        # <class 'function'>
+
+# 可以将函数赋值给一个变量
+fun = square
+print(fun(3.5))            # 12.25
+
+print(id(fun))             # 139999503139312
+print(id(square))          # 139999503139312
+print(fun is square)       # True
+
+# 将函数放在一个容器中
+def square(x):
+    return x*x
+
+def cube(x):
+    """Cube of x."""
+    return x*x*x
+
+funcs = {
+    'sq' : square,
+    'cb' : cube,
+}
+
+x = 2
+print(square(x))                    # 4
+print(cube(x))                      # 8
+
+for func in funcs:
+    print(func, funcs[func](x), end=" ")     # sq 4 cb 8 
+
+# 放在list对象中
+fun_list = [square, cube]
+for fun in fun_list:
+    print(fun(x), end=" ")                   # 4 8
+
+# 函数可以作为返回值
+def Squ():
+    return square
+
+f = Squ()
+print(f(6))                        # 36
+
+# 函数可以嵌套
+def Square(x):
+    def f():
+        return x*x
+
+    y = f()                           # 调用函数f()
+    return y+x
+
+print(Square(5))                      # 30
+
+# nonlocal声明的变量是其包围环境中的变量
+def Square(x):
+    def f():
+        nonlocal x
+        x = 2
+        return x*x
+
+    y = f()                           # 调用函数f()
+    return y+x
+
+print(Square(5))                      # 6
+
+# 函数可以作为其他函数的参数
+def SquList(L, fun):
+    for e in L:
+        print(fun(e), end = " ")
+
+SquList([2,3,4,5], square)          # 4 9 16 25
+```
+
+lambda表达式（匿名函数）：Python中的函数一般都是用def定义并有一个函数名，而lambda表达式是一个不用关键字def定义的没有函数名的函数，它主要用于定义简单的单行函数。
+
+```python
+# 定义表达式
+# lambda 参数 ： 语句
+add = lambda x, y : x+y
+print(add(3, 5))                 # 8
+
+# 可迭代对象排序的内置函数sorted(), sorted(iterable, key=None, reverse=False)
+alist = [-5, 3, 1, -7, 9]
+print(sorted(alist))                      # [-7, -5, 1, 3, 9]
+print(sorted(alist, reverse = True))      # [9, 3, 1, -5, -7]
+
+# 想让上面的列表按照绝对值排序
+print(sorted(alist, key=lambda x:abs(x)))    # [1, 3, -5, -7, 9]
+
+# list.sort([key=..., reverse=...])
+alist = [(2, 2), (3, 4), (4, 1), (1, 3)]
+alist.sort(key = lambda e:e[1])
+print(alist)                      # [(4, 1), (2, 2), (1, 3), (3, 4)]
+
+# 内置函数map()
+map(function, *iterable)    -->     [function(x) for x in iterable]
+
+def square(x):
+    return x*x
+
+ret = map(square, [3, 4, 5, 6, 7])
+print(tuple(ret))                      # (9, 16, 25, 36, 49)
+
+ret = map(square,[3, 4, 5, 6, 7])
+print(list(ret))                       # [9, 16, 25, 36, 49]
+
+ret = map(lambda x, y : x*y, [1, 4, 3], [3, 5, 6, 7])   # 因为前者只有三个元素，因此只有三对对应元素执行lambda表达式
+print(tuple(ret))                      # (3, 20, 18)
+
+# 内置函数filter()
+filter(function or None, iterable)
+
+numbers = range(-5,5)
+ret = filter(lambda x:x<0, numbers)
+
+less_than_zero = tuple(ret)
+print(less_than_zero)                # (-5, -4, -3, -2, -1)
+```
+
+### 模块和包
+
+函数是可以重复调用的程序块。在程序中使用他人已经编写好的函数代码，或者使自己编写的函数能被其他程序使用的方法是：导入（import）该函数所在的模块（mudule）。
+
+导入的模块只要说明模块名即可，不能有文件扩展名．py。程序代码中如果要使用模块中的对象，如函数，则需要用．运算符，即使用“模块名．函数名”访问具体的函数。
+
+后缀是．py的Python程序文件称为模块。可以用关键字import导入一个模块（如xxx）到程序中，模块xxx中的名字如name，可以通过xxx.name访问。import xxx as yy用于在导入模块xxx时给模块xxx起一个别名yy，访问模块中的名字就要用这个别名作为前缀
+
+from ... import可以导入模块中的一个名字（如from xxx import name导入模块xxx的单个名字name），也可以导入模块中的所有名字（如from xxximport *导入模块中的所有名字）
+
+包就是一个包含__init__.py文件的文件夹。这个__init__.py可以是空的文件，也可以包含一些Python命令（如执行一些初始化）。包将所有模块文件组织成一个层次结构
+
+sys模块是Python解释器交互的接口，如向脚本程序传递命令行参数，添加工作路径等
+
+random随机数模块可以用于生成各种随机数，如从一个序列对象里随机选择元素，或者得到一个序列的随机排列等
+
+Python提供了一个专门用于绘图的工具包Matplotlib。
+
+```python
+# import 模块名
+import math
+
+print(math.pi)                        # 3.141592653589793
+print(math.sin(1.57))                 # 0.9999996829318346
+print(math.sin(math.pi/2))            # 1.0
+
+# 重命名导入模块
+import math as m
+
+print(m.pi)                           # 3.141592653589793
+# 只能用重命名的m.pi而不能用math.pi去访问math的pi
+
+# 导入单独名字
+from math import sqrt
+
+print(sqrt(2))           # 1.4142135623730951
+
+# 导入所有名字
+from math import *
+
+print(pi)                # 3.141592653589793
+print(sin(1.57))         # 0.9999996829318346
+print(sqrt(2))           # 1.4142135623730951
+
+# random模块
+import random
+
+a=random.random()           # [0.0, 1.0）之间的随机浮点数（除1外）
+b=random.uniform(100, 1)   # [1.0, 100.0）之间的浮点数，可能不包括100.0
+c=random.randint(-10, 80)   # 随机整数
+print(a, '\t', b, '\t', c)                # 0.559085992800573 	 73.5195511617527 	 25
+r=random.choice(r'dfs＊d=! kh#^h@')  # 在字符串r'dfs＊d=! kh#^h@’中随机选择一个
+print(r)                                  # f
+p=["Python", "C", "小白", "a.hwdong.com"]
+print(random.choice(p))      # 从列表x中任意选择1个数    Python
+random.shuffle(p)            # 重排序：打乱列表x中元素的顺序
+print(p)                                  # ['C', 'a.hwdong.com', '小白', 'Python']
+alist=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+a=random.sample(alist, 5)  # 从list中随机获取5个元素，返回1个list对象
+print(a)                                  # [1, 3, 6, 4, 8]
+
+# seeding种子
+import random
+
+def f():
+    random.seed(1)   # 初始化随机数发生器
+    for i in range(5):
+        print('{:04.3f}'.format(random.random()), end=' ')
+    print()
+
+    for i in range(3):
+        print(random.randint(-5, 5), end=' ')
+    print()
+
+f()             # 0.134 0.847 0.764 0.255 0.495        2 2 5     
+f()             # # 0.134 0.847 0.764 0.255 0.495        2 2 5 
+```
+
+python以包的形式将相关模块文件组合在不同文件中，包就是一个包含__init__.py文件的文件夹，包名就是文件名。
+
+__all__总结：
+
+● 如果没有为一个包定义__all__，则当使用import *时不会导入任何对象。
+
+● 如果没有为一个模块定义__all__，则当使用import *时将导入模块中的所有对象，否则仅导入__all__中定义的对象。
