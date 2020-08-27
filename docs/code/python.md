@@ -9,7 +9,7 @@
 5. 显示类型转换：可以用内置函数str()、int()、float()将其他类型的值转为str、int、float类型。
 6. break语句，在重复执行循环体时，如果满足某种条件，就可以用break语句跳出循环，即不再执行循环体。
 7. continue语句，在执行循环体时，如果遇到continue语句，则会停止执行其后续语句，返回循环开头继续执行循环体。
-8. 循环语句（for或while）都可以在后面跟一个else语句，当for语句遍历完整个可迭代对象（如遍历完整个list的元素），或者当while语句的条件表达式是false退出时，都会执行这个else语句。但是，如果是通过break跳出循环语句则不会执行这个else语句。
+8. 循环语句(for或while)都可以在后面跟一个else语句，当for语句遍历完整个可迭代对象(如遍历完整个list的元素)，或者当while语句的条件表达式是false退出时，都会执行这个else语句。但是，如果是通过break跳出循环语句则不会执行这个else语句。
 9. 空语句pass用于语法上需要语句而实际不需要做任何工作的地方，或者用作占位符，以等待后续补充代码。
 10. 逻辑运算符是and、or、not
 
@@ -36,7 +36,7 @@ print(my_list)        # [2, 3.14, 8, 'python', 9, 'hello']
 print(my_list[0])     # 2
 print(my_list[3])     # python
 
-# 还可以通过向下标运算符[]传递起始位置和结束位置的两个下标，返货连续多个元素组成的子列表（不包括结束位置的元素）
+# 还可以通过向下标运算符[]传递起始位置和结束位置的两个下标，返货连续多个元素组成的子列表(不包括结束位置的元素)
 my_list = [2, 3.14, 8, 'python', 9, 'hello']
 print(my_list[1:4]) # [3.14, 8, 'python']
 print(my_list[2:])  # [8, 'python', 9, 'hello']
@@ -225,7 +225,7 @@ print("This sum is", sum)   # This sum is 271
 for e in range(2, 8):
 	print(e, end=" ")      # 2 3 4 5 6 7 
 
-#range()该对象包括了介于start和stop之间（但不包括stop）的一系列整数的可迭代对象：
+#range()该对象包括了介于start和stop之间(但不包括stop)的一系列整数的可迭代对象：
 range(start, stop, step)
 start、start+step、start+step+step
 
@@ -243,7 +243,7 @@ def binarySearch(alist, value):
     L=0                          #区间左端点
     H=len(alist)-1               #区间右端点
     found=False
-    while L<=H:                    #区间（L, H）存在
+    while L<=H:                    #区间(L, H)存在
       Middle=(L+H)//2           #Middle指向区间的中点
       if alist[Middle]==value: #等于Middle指向的元素，找到了
           return Middle
@@ -413,7 +413,7 @@ hello(msg="你好吗？", name="小白")      # hello! 小白,你好吗？
 hello(name="老张", msg="你好吗？")      # hello! 老张,你好吗？
 hello("李平", msg="你好吗？")           # hello! 李平,你好吗？
 
-# 任意形参（可变形参） - 如果不知道将来使用者调用这个函数时，传递的实际参数个数，则可以在定义函数时，在这个形参名前加一个星号*
+# 任意形参(可变形参) - 如果不知道将来使用者调用这个函数时，传递的实际参数个数，则可以在定义函数时，在这个形参名前加一个星号*
 def hello(*names):
 	print("哈喽：")
 	for name in names:   # 对比可变形参names元组tuple的每个元素name
@@ -483,7 +483,7 @@ print(fact(4))                # 24
 
 ● lambda函数是一个匿名函数，主要用于单行代码的函数，经常用作其他函数的参数。
 
-● 以函数作为参数的一些有用的内置函数如map（）、filter（）。
+● 以函数作为参数的一些有用的内置函数如map()、filter()。
 
 ```python
 # 具备对象的三个属性，id、type和值
@@ -563,7 +563,7 @@ def SquList(L, fun):
 SquList([2,3,4,5], square)          # 4 9 16 25
 ```
 
-lambda表达式（匿名函数）：Python中的函数一般都是用def定义并有一个函数名，而lambda表达式是一个不用关键字def定义的没有函数名的函数，它主要用于定义简单的单行函数。
+lambda表达式(匿名函数)：Python中的函数一般都是用def定义并有一个函数名，而lambda表达式是一个不用关键字def定义的没有函数名的函数，它主要用于定义简单的单行函数。
 
 ```python
 # 定义表达式
@@ -611,15 +611,15 @@ print(less_than_zero)                # (-5, -4, -3, -2, -1)
 
 ### 2.6 模块和包
 
-● 函数是可以重复调用的程序块。在程序中使用他人已经编写好的函数代码，或者使自己编写的函数能被其他程序使用的方法是：导入（import）该函数所在的模块（mudule）。
+● 函数是可以重复调用的程序块。在程序中使用他人已经编写好的函数代码，或者使自己编写的函数能被其他程序使用的方法是：导入(import)该函数所在的模块(mudule)。
 
 ● 导入的模块只要说明模块名即可，不能有文件扩展名．py。程序代码中如果要使用模块中的对象，如函数，则需要用．运算符，即使用“模块名．函数名”访问具体的函数。
 
-● 后缀是．py的Python程序文件称为模块。可以用关键字import导入一个模块（如xxx）到程序中，模块xxx中的名字如name，可以通过xxx.name访问。import xxx as yy用于在导入模块xxx时给模块xxx起一个别名yy，访问模块中的名字就要用这个别名作为前缀
+● 后缀是．py的Python程序文件称为模块。可以用关键字import导入一个模块(如xxx)到程序中，模块xxx中的名字如name，可以通过xxx.name访问。import xxx as yy用于在导入模块xxx时给模块xxx起一个别名yy，访问模块中的名字就要用这个别名作为前缀
 
-● from ... import可以导入模块中的一个名字（如from xxx import name导入模块xxx的单个名字name），也可以导入模块中的所有名字（如from xxximport *导入模块中的所有名字）
+● from ... import可以导入模块中的一个名字(如from xxx import name导入模块xxx的单个名字name)，也可以导入模块中的所有名字(如from xxximport *导入模块中的所有名字)
 
-● 包就是一个包含__init__.py文件的文件夹。这个__init__.py可以是空的文件，也可以包含一些Python命令（如执行一些初始化）。包将所有模块文件组织成一个层次结构
+● 包就是一个包含__init__.py文件的文件夹。这个__init__.py可以是空的文件，也可以包含一些Python命令(如执行一些初始化)。包将所有模块文件组织成一个层次结构
 
 ● sys模块是Python解释器交互的接口，如向脚本程序传递命令行参数，添加工作路径等
 
@@ -656,8 +656,8 @@ print(sqrt(2))           # 1.4142135623730951
 # random模块
 import random
 
-a=random.random()           # [0.0, 1.0）之间的随机浮点数（除1外）
-b=random.uniform(100, 1)   # [1.0, 100.0）之间的浮点数，可能不包括100.0
+a=random.random()           # [0.0, 1.0)之间的随机浮点数(除1外)
+b=random.uniform(100, 1)   # [1.0, 100.0)之间的浮点数，可能不包括100.0
 c=random.randint(-10, 80)   # 随机整数
 print(a, '\t', b, '\t', c)                # 0.559085992800573 	 73.5195511617527 	 25
 r=random.choice(r'dfs＊d=! kh#^h@')  # 在字符串r'dfs＊d=! kh#^h@’中随机选择一个
@@ -697,9 +697,9 @@ __all__总结：
 
 ● Python的数值类型有int、float、complex、bool。
 
-● 通过在数值前面加前缀可表示不同进制的数值。内置函数bin（）、oct（）、hex（）可分别用于得到二进制、八进制、十六进制数值对应的字符串。
+● 通过在数值前面加前缀可表示不同进制的数值。内置函数bin()、oct()、hex()可分别用于得到二进制、八进制、十六进制数值对应的字符串。
 
-● 不同类型的数值参与运算时，有时会自动进行隐式类型转换，有时则需要进行显式强制类型转换。内置函数int（）、float（）、complex（）将其他类型的值，如字符串类型str的值强制显式类型转换为int、float、complex类型的值。内置函数str（）可将其他类型的值转化为字符串类型。
+● 不同类型的数值参与运算时，有时会自动进行隐式类型转换，有时则需要进行显式强制类型转换。内置函数int()、float()、complex()将其他类型的值，如字符串类型str的值强制显式类型转换为int、float、complex类型的值。内置函数str()可将其他类型的值转化为字符串类型。
 
 ● 浮点数只能用二进制近似表示。Python提供了用于分数计算的Fraction类型。
 
@@ -708,7 +708,7 @@ __all__总结：
 ### 3.1 数值
 
 ```python
-# 可以用一个内置函数isinstance（）判断一个对象是否为某种类型的对象
+# 可以用一个内置函数isinstance()判断一个对象是否为某种类型的对象
 print(isinstance(2, int))                       # True
 print(isinstance(2.0, int))                     # False
 print(isinstance(2+3.9j, complex))              # True
@@ -719,7 +719,7 @@ print(0b0110100101)                             # 421
 print(0O703516)                                 # 231246
 print(0X7F3BA)                                  # 521146
 
-# 可以用内置函数bin（）、oct（）、hex（）分别得到一个数的二进制、八进制、十六进制对应的字符串
+# 可以用内置函数bin()、oct()、hex()分别得到一个数的二进制、八进制、十六进制对应的字符串
 print(bin(412))                                 # 0b110011100
 print(oct(412))                                 # 0o634
 print(hex(412))                                 # 0x19c
@@ -759,27 +759,27 @@ print('   e: {:.30f}'.format(math.e))           #    e: 2.7182818284590450907955
 
 # 异常值：浮点计算可以产生两个异常值：inf和nan，也可能抛出一个OverflowError异常
 import math
-x = 10.0 ** 200                                 # 浮点数超过float类数值表示范围时，产生的结果是inf（无穷大）
+x = 10.0 ** 200                                 # 浮点数超过float类数值表示范围时，产生的结果是inf(无穷大)
 y = x*x
 print(y, '\t', math.isinf(x*x))                 # inf 	 True
 
 import math
 x = 10.0 ** 200                                 # 并不是所有溢出的值都用inf表示
-x ** 2                                          # 会抛出异常：“OverflowError:（34, 'Result too large'）”。数值计算的结果是inf还是抛出溢出异常OverflowError是由底层的C Python决定的
+x ** 2                                          # 会抛出异常：“OverflowError:(34, 'Result too large')”。数值计算的结果是inf还是抛出溢出异常OverflowError是由底层的C Python决定的
 
 import math
-x = (10.0 ** 200) * (10.0 ** 200)               # 如果除inf的结果是未定的，则结果是nan（未定的数值）。因为nan不能和其他值进行比较，所以检查nan只能使用函数isnan（）
+x = (10.0 ** 200) * (10.0 ** 200)               # 如果除inf的结果是未定的，则结果是nan(未定的数值)。因为nan不能和其他值进行比较，所以检查nan只能使用函数isnan()
 y = x/x
 print(y, '\t', math.isnan(y))                   # nan 	 True
 
-# 可以使用函数isfinite（）来检查一个数值是常规数值还是特殊值inf或nan
+# 可以使用函数isfinite()来检查一个数值是常规数值还是特殊值inf或nan
 import math
 for f in [math.pi, math.e, math.inf, math.nan]:
-    print('（{:5.2f} {!s}）'.format(f, math.isfinite(f)), end=',')    # （ 3.14 True）,（ 2.72 True）,（  inf False）,（  nan False）,
+    print('({:5.2f} {!s})'.format(f, math.isfinite(f)), end=',')    # ( 3.14 True),( 2.72 True),(  inf False),(  nan False),
 
-# 比较两个浮点数是否相等实际上就是看它们差的绝对值是否足够小，Python的math模块提供了函数isclose（）
+# 比较两个浮点数是否相等实际上就是看它们差的绝对值是否足够小，Python的math模块提供了函数isclose()
 # 格式：isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)默认形参rel_tol和abs_tol分别表示相对误差和绝对误差
-# 用于相对误差比较abs（a-b）<=rel_tol * max（abs（a）, abs（b））时：
+# 用于相对误差比较abs(a-b)<=rel_tol * max(abs(a), abs(b))时：
 import math
 a = 1.00
 b = 0.90
@@ -817,11 +817,11 @@ for i in VALUES:
 #   1.2   1.0   1.0   1.0   2.0
 
 # 平方根、指数、对数
-# 函数sqrt（x）用于专门计算一个数x的平方根
+# 函数sqrt(x)用于专门计算一个数x的平方根
 import math
 print(math.sqrt(3))                              # 1.7320508075688772
 
-# 幂函数pow（x, y）计算x的y次方，其功能类似x**y，但pow（x, y）可以保证按照浮点数运算，而x ** y只可以返回一个int或一个float
+# 幂函数pow(x, y)计算x的y次方，其功能类似x**y，但pow(x, y)可以保证按照浮点数运算，而x ** y只可以返回一个int或一个float
 x=2.1
 y=3.2
 print(x**y)                                     # 10.74241047739471
@@ -833,7 +833,7 @@ print(math.pow(2,3))                            # 8.0
 ### 3.2 列表
 
 ```python
-# 可以用Python的内置函数len（）查询一个list中的元素个数
+# 可以用Python的内置函数len()查询一个list中的元素个数
 my_list = [2, [8, 4, 6], '小白', 3.14, 'python', ['a']]
 print(len(my_list))                             # 6
 
@@ -850,7 +850,7 @@ print(my_list[len(my_list)-1])                  # ['a']
 print(my_list[-len(my_list)])                   # 2
 
 
-# 还可以通过向下标运算符[]传递起始位置和结束位置的两个下标，返回连续多个元素组成的子列表（不包括结束位置的元素）,这叫切片
+# 还可以通过向下标运算符[]传递起始位置和结束位置的两个下标，返回连续多个元素组成的子列表(不包括结束位置的元素),这叫切片
 my_list = [2, 3.14, 8, 'python', 9, 'hello']
 print(my_list[1:4]) # [3.14, 8, 'python']
 print(my_list[2:])  # [8, 'python', 9, 'hello']
@@ -907,7 +907,7 @@ for i, value in enumerate(alist):
     print(i, value, end=" ")                    # 0 3 1 7 2 hello 
 
 # 内置函数sorted()可以用来对一个list排序，但它不修改原来的list而是返回一个排好序的新的list
-# sorted(iterable, key=None, reverse=False) 其中，iterable是可迭代对象，key是用来进行比较的函数，reverse表示是“逆序”（True）还是“正序”（False）
+# sorted(iterable, key=None, reverse=False) 其中，iterable是可迭代对象，key是用来进行比较的函数，reverse表示是“逆序”(True)还是“正序”(False)
 alist = [19, 2, 17, 12]
 blist = sorted(alist)
 print(blist)                                    # [2, 12, 17, 19]
@@ -926,7 +926,7 @@ print(odd)                                      # [1, 3, 5, 7]
 odd.extend([9, 11, 13])
 print(odd)                                      # [1, 3, 5, 7, 9, 11, 13]
 
-# list的insert（）方法可以在中间某个位置插入一个元素
+# list的insert()方法可以在中间某个位置插入一个元素
 odd = [1, 9]
 odd.insert(1, 3)
 print(odd)                                      # [1, 3, 9]
@@ -944,7 +944,7 @@ print(alist)                                    # ['p', 'r', 'b', 'l', 'e']
 alist.clear()
 print(alist)                                    # []
 
-# list的remove（）方法可以删除特定的元素
+# list的remove()方法可以删除特定的元素
 alist = ['p', 'r', 'o', 'b', 'l', 'e', 'm']
 alist.remove('p')
 print(alist)                                    # ['r', 'o', 'b', 'l', 'e', 'm']
@@ -960,7 +960,7 @@ print(alist)                                    # ['r', 'o', 'b', 'l', 'e', 'm']
 
 ● 字符串是不可变的对象，不可修改的对象
 
-● 可以用内置函数或字符串str类型的方法对字符串进行操作。例如，str的format（）方法可以对字符串进行各种格式化操作，产生一个新的字符串
+● 可以用内置函数或字符串str类型的方法对字符串进行操作。例如，str的format()方法可以对字符串进行各种格式化操作，产生一个新的字符串
 
 ```python
 # 可以用+拼接两个字符串，可以用*重复一个字符串
@@ -1030,5 +1030,216 @@ name = "lihua"
 where = "shanghai"
 work_in = "{} 在 {} 工作！".format(name, where)
 print(work_in)                                  # lihua 在 shanghai 工作！
-
 ```
+
+### 3.4 元组
+
+● 创建tuple字典对象可以用圆括号、内置函数tuple()。不能用解析式直接创建tuple对象，但可以将解析式作为tuple()的函数参数用于创建tuple对象
+
+● 不同于list, tuple对象不可修改
+
+● 对list的操作大部分也可以用于tuple。例如，下标运算符访问一个或多个元素；成员运算符in和not in；比较运算符；+和*运算符；for循环；内在函数max()、min()、sum(); tuple类的自身方法，如count()、index()等。
+
+```python
+# 可以用+拼接两个字符串，可以用*重复tuple对象
+t = (1, 2, 3) + (5, 6, 7)
+print(t)                                        # (1, 2, 3, 5, 6, 7)
+t = (1, 2, 3) * 3
+print(t)                                        # (1, 2, 3, 1, 2, 3, 1, 2, 3)
+
+# 和str、list一样，运算符in和not in分别用于判断一个元素是否“在”或“不在”一个tuple对象里
+t = (2, 3.14, 'hello', [5, 6])
+print(3.14 in t)                                # True
+print(3 not in t)                               # True
+
+# 和str、list一样，可以用for…in遍历一个tuple对象
+for name in ('Zhang', 'Wang'):
+    print("Hello, ", name, end=" ")             # Hello,  Zhang Hello,  Wang
+
+# 可以用内置函数(max()、min()、sum()等)对一个tuple对象进行操作
+t = (23, 19, 2, 50, 11)
+if 19 in t:
+    print('19 is in tuple t')                                       # 19 is in tuple t
+print('max, min and sum of tuple t is:', max(t), min(t), sum(t))    # max, min and sum of tuple t is: 50 2 105
+for e in t:
+    print(e, end=" ")                                               # 23 19 2 50 11 
+print()
+print(2*t)                                                          # (23, 19, 2, 50, 11, 23, 19, 2, 50, 11)
+t2 = tuple(range(3, 10, 2))
+print(t2)                                                           # (3, 5, 7, 9)
+print(t+t2)                                                         # (23, 19, 2, 50, 11, 3, 5, 7, 9)
+```
+
+### 3.5 集合
+
+集合(set)是无序的不重复元素容器类型。可以将一个set当作一个list，但需注意如下几个问题：
+
+    ● set中的元素没有顺序，所以无法通过下标访问其中的元素，但可以检查一个值是否在这个集合里
+
+    ● set中不允许出现重复的元素。因此，可以利用set对list或tuple中的元素去重(去除重复元素)
+
+    ● 可以对set执行数学上的并、交、差、对称差等运算
+
+● set(集合)是无序的不重复元素的容器类型。集合中的元素没有顺序之分，下标运算符不能作用于set对象
+
+● 作为容器对象，可用in和not in分别检查元素是否在集合里。可用for循环遍历其中的元素
+
+● 对set对象可执行数学上的并、交、差、对称差等运算。可用比较运算符(<、>、==等)比较两个set对象的关系
+
+● 可用内置函数或set的方法对set对象进行操作。例如，函数sum()求和，add()和remove()方法分别可添加、删除元素等。update()可以添加1个或多个对象
+
+```python
+# 如果要创建一个空的set对象，要用内置函数set()
+es = set()
+print(type(es))                                                     # set
+
+# 像list、tuple、str等容器一样，可以用for循环遍历set对象的所有元素
+s = {2, 3.14, 'hello'}
+for e in s:
+    print(e, end=" ")                                               # hello 2 3.14 
+
+# 和list、tuple一样，可以用内置函数，如len()、max()、min()、sum()等对set对象进行操作
+s = {8, 2, 11, 7}
+print(s)                                                            # {8, 2, 11, 7}
+print(len(s))                                                       # 4
+print(min(s))                                                       # 2
+print(max(s))                                                       # 11
+print(sum(s))                                                       # 28
+print(id(s))                                                        # 140070297998720
+
+# 用add()方法添加对象，用remove()方法删除一个对象
+s = {'python', 'hello', 'world', '小白'}   
+print(s)                                                            # {'hello', '小白', 'python', 'world'}
+print(id(s))                                                        # 140181317334400
+
+s.add(3.14)
+print(s)                                                            # {3.14, 'python', 'hello', '小白', 'world'}
+print(id(s))                                                        # 140181317334400
+
+s.remove('hello')
+print(s)                                                            # {3.14, 'python', '小白', 'world'}
+
+# 用remove()方法删除一个不存在的值会报错，用discard()方法删除一个不存在的值时，不会抛出异常
+# 可以用update()方法一次添加多个值。update()方法的参数是一个可迭代对象，如list、tuple、str等类型对象
+s = {1, 2, 3}
+s.update('hello')
+print(s)                                                            # {1, 2, 3, 'h', 'l', 'o', 'e'}
+s.update([23, 17])
+print(s)                                                            # {1, 2, 3, 'h', 'l', 'o', 'e', 17, 23}
+
+# 如果要删除一个set对象的所有元素，则可以用clear()方法
+s = {1, 2, 3}
+s.clear()
+print(s)                                                            # set()
+```
+
+### 3.6 字典
+
+● 创建dict对象有四种方法：花括号{}、内置函数dict()、fromkeys()方法、字典解析式
+
+● 对于一个dict对象，下标运算符[]或update()方法可以通过键(key)查询、修改、删除、添加元素
+
+● 用方法keys()、values()、 items()可以分别获得一个dict对象的所有键、所有值、所有元素。可以迭代访问其中的键(keys)、值(values)或键值对(key-values)
+
+● 可以通过内置函数或dict的方法操作一个dict对象
+
+● 可以用in检测某个键是否在dict对象里，但不能检测某个值是否在dict对象中
+
+```python
+# 创建空的dict对象
+d = {}
+d1 = dict()
+
+# 用{}创建有初始值的dict对象
+d1 = {'李平':78.5, '张伟':80, '赵四':90}
+d2 = {'李平':78.5, 1:[2, 4, 3]}                                     # key既可以是字符串，也可以是整数
+
+# 用函数dict()创建有初始值的dict对象
+d3 = dict({'李平':78.5, 1:[2, 4, 3]})
+d4 = dict(LiPing=78.5, 张伟=[2, 3, 4])
+
+d5 = {x:x**3 for x in range(5)}
+print(d)                                                            # {}
+print(d1)                                                           # {'李平': 78.5, '张伟': 80, '赵四': 90}
+print(d2)                                                           # {'李平': 78.5, 1: [2, 4, 3]}
+print(d3)                                                           # {'李平': 78.5, 1: [2, 4, 3]}
+print(d4)                                                           # {'LiPing': 78.5, '张伟': [2, 3, 4]}
+print(d5)                                                           # {0: 0, 1: 1, 2: 8, 3: 27, 4: 64}
+
+# fromkeys()方法也可以用于创建dict对象
+keys = ('python', 1)
+d = dict.fromkeys(keys)
+print(d)                                                            # {'python': None, 1: None}
+d2 = dict.fromkeys(keys, 'hello')
+print(d2)                                                           # {'python': 'hello', 1: 'hello'}
+
+# 获取键的值的方法是用下标运算符[]，将键传入，以得到该键对应的值
+d = {'李平':78.5, '张伟':80, '赵四':90}
+print(d['李平'])                                                     # 78.5
+
+# 为了避免抛出错误，还可以用get()方法代替下标运算符[]得到一个键对应的值，如果没有这个键，就返回该函数第2个参数设置的默认值
+d = {'李平':78.5, 1:[2, 4, 3]} 
+print(d.get('李平'))                                                 # 78.5
+print(d.get(2))                                                     # None
+
+# 可以通过下标插入或更新一个键值
+d = {'李平':78.5, 1:[2, 4, 3]}
+d['李平'] = ('男', 23)
+print(d)                                                            # {'李平': ('男', 23), 1: [2, 4, 3]}
+d['赵薇'] = ('女', 18)
+print(d)                                                            # {'李平': ('男', 23), 1: [2, 4, 3], '赵薇': ('女', 18)}
+
+# update()方法也可以插入或更新一个或多个键-值
+d = {'李平':78.5, 1:[2, 4, 3]}
+d.update({'李平': ('男', 23), 'pytho':2})
+print(d)                                                            # {'李平': ('男', 23), 1: [2, 4, 3], 'pytho': 2}
+
+# 可以用del()或pop()方法删除一个键对应的键-值对，其中pop()方法会返回被删除的键对应的值,可以用clear()方法删除一个dict中所有的键-值对
+d = {'李平': ('男', 23), 1: [2, 4, 3], 'pytho': 2}
+del d['李平']
+print(d)                                                            # {1: [2, 4, 3], 'pytho': 2}
+d.pop(1)
+print(d)                                                            # {'pytho': 2}
+d.clear()
+print(d)                                                            # {}
+
+# 集合dict的keys()、values()、items()方法可分别返回一个dict对象的所有键、所有值、所有键值对构成的可迭代对象
+d = {'a':1, 'b':2, 'c':3}
+print(d.keys())                                                     # dict_keys(['a', 'b', 'c'])
+print(d.values())                                                   # dict_values([1, 2, 3])
+print(d.items())                                                    # dict_items([('a', 1), ('b', 2), ('c', 3)])
+
+# 用for…in循环可遍历一个dict对象的每个键，或遍历keys()、values()或items()方法返回的包含键、值或键值的可迭代对象
+d = {'a':1, 'b':2, 'c':3}
+for key in d:
+    print(key, end=',')                                             # a,b,c,
+print()
+for key in d.keys():
+    print(key, end=',')                                             # a,b,c,
+print()
+for value in d.values():
+    print(value, end=',')                                           # 1,2,3,
+print()
+for key,value in d.items():
+    print(key, value, sep='-', end=',')                             # a-1,b-2,c-3,
+
+# 内置函数len()可查询dict对象的元素个数，内置函数str()可将一个dict对象转化为一个字符串表示
+d = {'李平': ('男', 23), 1: [2, 4, 3], 'pytho': 2}
+print(len(d))                                                       # 3
+print(str(d))                                                       # {'李平': ('男', 23), 1: [2, 4, 3], 'pytho': 2}
+```
+
+## 四. 面向对象编程
+
+### 4.1 什么是面向对象编程
+
+● 面向对象编程就是用类刻画同类对象的共同特性，通过类的实例来表示具体的对象，并通过向对象发送消息，即调用类的方法来请求对象进行数据处理或计算
+
+● 过程式编程将问题分解为一些过程或函数，通过向函数传递数据执行数据处理或计算
+
+● Python既支持过程式编程，也支持面向对象式编程，两种编程方式可以混合使用
+
+● 用关键字class定义一个类，类的属性有数据属性和方法属性。习惯上将数据属性称为成员变量，将方法属性称为方法，一个类的实例也称为对象，可以通过一个对象和成员访问运算符．访问这个对象的属性
+
+### 4.2 类和对象
+
