@@ -833,4 +833,202 @@ print(math.pow(2,3))                            # 8.0
 ### 3.2 列表
 
 ```python
+# 可以用Python的内置函数len（）查询一个list中的元素个数
+my_list = [2, [8, 4, 6], '小白', 3.14, 'python', ['a']]
+print(len(my_list))                             # 6
+
+# list是一个有序集合，每个元素都有一个确定的下标，下标从0开始，长度为n的列表的最后一个元素的下标是n-1
+print(my_list)                                  # [2, [8, 4, 6], '小白', 3.14, 'python', ['a']]
+print(my_list[0])                               # 2
+print(my_list[2])                               # 小白
+print(my_list[1][2])                            # 6
+print(my_list[-1])                              # ['a']
+print(my_list[-2])                              # python
+# 最后一个元素
+print(my_list[len(my_list)-1])                  # ['a']
+# 第一个元素
+print(my_list[-len(my_list)])                   # 2
+
+
+# 还可以通过向下标运算符[]传递起始位置和结束位置的两个下标，返回连续多个元素组成的子列表（不包括结束位置的元素）,这叫切片
+my_list = [2, 3.14, 8, 'python', 9, 'hello']
+print(my_list[1:4]) # [3.14, 8, 'python']
+print(my_list[2:])  # [8, 'python', 9, 'hello']
+print(my_list[:4])  # [2, 3.14, 8, 'python']
+print(my_list[:])   # [2, 3.14, 8, 'python', 9, 'hello']
+
+# 修改元素
+my_list = [2, 3.14, 8, 'python', 9, 'hello']
+my_list[2] = '小白'
+print(my_list)      # [2, 3.14, '小白', 'python', 9, 'hello']
+
+my_list = [2, 3.14, 8, 'python', 9, 'hello']
+my_list[2:5] = [10, 25]
+print(my_list)      #  [2, 3.14, 10, 25, 'hello']
+
+# 删除元素
+my_list = [2, 3.14, 8, 'python', 9, 'hello']
+my_list[2:4] = []   # 相当于删除了[2:4]之间的元素，不包括下标为4的元素
+print(my_list)      # [2, 3.14, 'hello']
+
+# 用in可判断1个元素是否在1个list里
+my_list=['p', 'r', 'o', 'b', 'l', 'e', 'm']
+print('p' in my_list)                           # True
+print('a' in my_list)                           # False
+print('c' not in my_list)                       # True
+
+# 用for迭代遍历1个list
+for fruit in ['apple', 'banana', 'mango']:
+    print("I like", fruit, end=" ")             # I like apple I like banana I like mango 
+
+# 可以通过加法运算+拼接两个list，用整数和list的乘法运算*复制list内容
+odd = [1, 3, 5]
+print(odd + [9, 7, 5])                          # [1, 3, 5, 9, 7, 5]
+print(['re']*3)                                 # ['re', 're', 're']
+
+# 可以用Python的内置函数对list进行操作，如函数del()可删除list的中1个元素或1个范围里的元素
+alist = ['p', 'r', 'o', 'b', 'l', 'e', 'm']
+a = alist
+del alist[2]
+print(alist)                                    # ['p', 'r', 'b', 'l', 'e', 'm']
+del alist[1:5]
+print(alist)                                    # ['p', 'm']
+del alist                                       # 删除整个alist,只是删除指向数组的指针
+print(a)                                        # ['p', 'm']
+print(alist)                                    # NameError: name 'alist' is not defined
+
+# 对1个列表，当既要访问索引又要遍历元素时
+alist = [3, 7, 'hello']
+for i in range(len(alist)):
+    print(i, alist[i], end=" ")                 # 0 3 1 7 2 hello 
+
+# 更好的办法是使用枚举函数enumerate()
+for i, value in enumerate(alist):
+    print(i, value, end=" ")                    # 0 3 1 7 2 hello 
+
+# 内置函数sorted()可以用来对一个list排序，但它不修改原来的list而是返回一个排好序的新的list
+# sorted(iterable, key=None, reverse=False) 其中，iterable是可迭代对象，key是用来进行比较的函数，reverse表示是“逆序”（True）还是“正序”（False）
+alist = [19, 2, 17, 12]
+blist = sorted(alist)
+print(blist)                                    # [2, 12, 17, 19]
+blist = sorted(alist, reverse=True)
+print(blist)                                    # [19, 17, 12, 2]
+alist = [('b', 2), ('a', 1), ('c', 3), ('d', 4)]
+blist = sorted(alist, key=lambda x:x[1])
+print(blist)                                    # [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
+
+# 添加一个元素
+odd = [1, 3, 5]
+odd.append(7)
+print(odd)                                      # [1, 3, 5, 7]
+
+# 扩展原来的list
+odd.extend([9, 11, 13])
+print(odd)                                      # [1, 3, 5, 7, 9, 11, 13]
+
+# list的insert（）方法可以在中间某个位置插入一个元素
+odd = [1, 9]
+odd.insert(1, 3)
+print(odd)                                      # [1, 3, 9]
+
+odd.insert(1, [4, 5])
+print(odd)                                      # [1, [4, 5], 3, 9]
+
+# list的pop()方法可以删除指定下标的元素，如果没有指定下标，则删除最后一个元素
+# list的clear()方法则清空整个list，但没有销毁它
+alist = ['p', 'r', 'o', 'b', 'l', 'e', 'm']
+alist.pop(2)
+print(alist)                                    # ['p', 'r', 'b', 'l', 'e', 'm']
+alist.pop()
+print(alist)                                    # ['p', 'r', 'b', 'l', 'e']
+alist.clear()
+print(alist)                                    # []
+
+# list的remove（）方法可以删除特定的元素
+alist = ['p', 'r', 'o', 'b', 'l', 'e', 'm']
+alist.remove('p')
+print(alist)                                    # ['r', 'o', 'b', 'l', 'e', 'm']
+```
+
+### 3.3 字符串
+
+● 字符串是有序的字符序列，每个字符都对应唯一的下标，可以通过下标运算符[]进行索引或切片操作，也可以用for循环迭代访问其中的字符
+
+● 字符串可以用单引号、双引号或三个引号表示，特殊字符需要用转义字符，如\r、\n、\t、\"、\\, Python中用raw字符串更简单
+
+● 字符串支持in、+、*等运算符
+
+● 字符串是不可变的对象，不可修改的对象
+
+● 可以用内置函数或字符串str类型的方法对字符串进行操作。例如，str的format（）方法可以对字符串进行各种格式化操作，产生一个新的字符串
+
+```python
+# 可以用+拼接两个字符串，可以用*重复一个字符串
+print(3 * 'um' + 'ium')                         # umumumium
+
+# 字符串文字量可以通过紧挨着写，达到拼接的效果
+s = 'Py' 'thon'
+print(s)                                        # Python
+
+# 如果两个需要拼接的字符串文字量不在同一行，则需要在前面的字符串后面加上反斜杠字符\，或者在两个字符串外面用左右圆括号包围它们
+text='如果两个需要拼接的字符串文字量不在同一行，则需要在前面的字符串后面加上反斜杠字符\，或者在两个字符串外面用左右圆括号'\
+'包围它们'
+print(text)
+text=('如果两个需要拼接的字符串文字量不在同一行，则需要在前面的字符串后面加上反斜杠字符\，或者在两个字符串外面用左右圆括号'
+'包围它们')
+print(text)
+
+# 可以将r或R放在字符串前面，表示它是一个原始字符串，其中的任何转义字符都将被忽略
+print(r'hello\t\tworld\n')                      # hello\t\tworld\n
+print('hello\t\tworld\n')                       # hello		world
+
+# 切片，获取某段的字符串
+word = 'Python'
+print(word[0:2])                                # Py
+print(word[2:5])                                # tho
+print(word[:2])                                 # Py
+print(word[2:])                                 # thon
+print(word[:-2])                                # Pyth
+print(word[-3:])                                # hon
+print(word[:])                                  # Python
+
+# 和list一样，可以用in判断一个字符是否在一个字符串对象中
+s = 'hello'
+print('h' in s)                                 # True
+print('H' in s)                                 # False
+
+# upper()将字符串中的字母转为大写字母,lower()将字符串中的字母转为小写字母
+s = 'hello'
+print(s.upper())                                # HELLO
+s = 'HELLO'
+print(s.lower())                                # hello
+
+# lstrip()、rstrip()和strip()分别用于删除字符串中的左侧、右侧和左右两侧位置的空白字符
+s = '   hello,  world   '
+print('#', s.lstrip(), '#')                     # # hello,  world    #
+print('#', s.rstrip(), '#')                     # #    hello,  world #
+print('#', s.strip(), '#')                      # # hello,  world #
+
+# split()通过指定分隔符对字符串进行分割，split(sep=None, max=-1)，sep是分隔符，默认为空格，max表示最大分割次数
+s = 'hello world'
+print(s.split())                                # ['hello', 'world']
+s = 'hello,world'
+print(s.split())                                # ['hello,world']
+print(s.split(','))                             # ['hello', 'world']
+
+# str.join(sequence)用这个字符串str连接序列sequence中的其他字符串
+s = ["Monday", "Wednesday", "Friday"]
+result = "-".join(s)
+print(result)                                   # Monday-Wednesday-Friday
+
+# replace(old, new[, max])将字符串中匹配old的子串替换为字符串new，如果指定max，则最多替换max次
+string = 'hello world, hello world, hello world'
+print(string.replace('wor', 'woo', 2))          # hello woold, hello woold, hello world
+
+# format()方法针对一个包含占位符{}的字符串，将参数传给format()方法来取代占位符{}
+name = "lihua"
+where = "shanghai"
+work_in = "{} 在 {} 工作！".format(name, where)
+print(work_in)                                  # lihua 在 shanghai 工作！
+
 ```
