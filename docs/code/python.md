@@ -1243,3 +1243,315 @@ print(str(d))                                                       # {'李平':
 
 ### 4.2 类和对象
 
+● 关键字class用于定义一个类。一个类具有实例属性和类属性，每个对象都有自己的独立的实例属性。不同对象可具有不同的实例属性，而类属性是所有对象共享的
+
+● 通常，用构造函数__init__（）定义和初始化一个对象的实例属性。在创建一个类的对象（实例）时，类的构造函数会自动被调用。其中，第一个参数self指向（引用）这个创建的对象
+
+● 类的实例方法的第一个参数必须是self，用于指向调用这个方法的那个对象
+
+● 在实例方法中，可以通过类名或type（self）访问类属性
+
+● del运算符用来删除一个变量指向的对象的引用计数，也可以用来删除对象的属性。当对象本身的引用计数为0时，Python的垃圾回收机制会自动回收这个对象占用的内存资源
+
+● 运算符重载：通过对一个类定义运算符方法，使这个运算符可以用于这种类的对象
+
+```python
+# Python用关键字class定义一个类
+class Employee:
+    pass
+# Python创建一个类的实例（对象）是通过一个叫作构造函数的__init__()方法完成的，并且其第一个参数必须是叫作self的参数，这个参数指向（引用）要创建的对象
+class Employee:
+    def __init__(self):
+        print("Employee构造函数用于创建一个对象")
+e = Employee()                                                       # Employee构造函数用于创建一个对象
+
+# 类的构造函数__init__（）方法除self参数外，还可以传递其他参数，通常传递用于初始化实例属性的参数
+class Employee():
+    def __init__(self, Name, Salary):
+        self.name = Name
+        self.salary = Salary
+e = Employee('Li ping', 5000)
+print(e.name, '\t', e.salary)                                       # Li ping 	 5000
+
+# 除构造函数外，还可以给类添加更多的方法（成员函数）
+class Employee():
+    def __init__(self, Name, Salary):
+        self.name = Name
+        self.salary = Salary
+    def printInfo(self):
+        print(self.name, ",", self.salary)
+
+e = Employee('Li ping', 5000)
+e.printInfo()                                                       # Li peng , 5000
+e2 = Employee('Wang yan', 600)
+e2.printInfo()                                                      # Wang yan , 600
+
+# 定义一些查询和修改数据属性的方法,注：所有实例方法的第一个参数都必须是self，即引用调用这个实例方法的那个对象
+class Employee():
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+    def printInfo(self):
+        print(self.name, ",", self.salary)
+    def set_name(self, name):
+        self.name = name
+    def get_name(self):
+        return self.name
+    def set_salary(self, salary):
+        self.salary = salary
+    def get_salary(self):
+        return self.salary
+e = Employee('Li ping', 5000)
+e.printInfo()                                                       # Li ping , 5000
+e.set_name('Wang Wei')
+e.set_salary(5500)
+print(e.get_name(), '\t', e.get_salary())                           # Wang Wei 	 5500
+e.printInfo()                                                       # Wang Wei , 5500
+
+# 注：和其他编程语言（如C++）不同，在同一个类中不能定义多个同名但形参不同的成员函数，即不能定义重载成员函数
+
+# 除实例属性外，还可以给一个类定义类属性，类属性是指类的所有对象都共享的属性，是定义在类的方法外面的属性
+class Employee:
+    count = 0
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.count +=1
+    def printInfo(self):
+        print('Employee总数：', self.count)
+e = Employee('Li ping', 5000)
+e2 = Employee('Wang yan', 600)
+print(e.count)                                              # 2
+print(e2.count)                                             # 2
+print(Employee.count)                                       # 2
+print()
+e.printInfo()                                               # Employee总数： 2
+e2.printInfo()                                              # Employee总数： 2
+
+# 类属性是不属于一个具体的类实例（对象）的，通常，可以通过类名.类属性来查询或修改类属性，也可通过实例名.类属性（包括self.类属性）来查询实例属性，但不能通过实例名.类属性（包括self.类属性）的方式来修改类属性，否则就是创建了实例属性，而不是访问类属性
+class C:
+    count=0
+    def __init__(self):
+        C.count += 1
+    def inc(self):
+        self.count += 1
+c1 = C()
+c2 = C()
+print(c1.count, c2.count, C.count)                          # 2 2 2
+c1.inc()                                                    
+print(c1.count, c2.count, C.count)                          # 3 2 2
+print(c1.__dict__)                                          # {'count': 3}
+print(c2.__dict__)                                          # {}
+# inc（）方法中的“self.count+=1”等价于“self.count=self.count+1”，赋值语句的左边self.count相当于为这个实例创建该类的一个新的实例属性count，而右边的self.count仅仅是查询，通过这个实例调用inc（）方法时，右边的self.count就是这个实例已经创建好的实例属性count，而不是类属性count
+
+# del运算符可以用于删除一个对象的实例属性或类属性
+class Employee:
+    count = 0
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.count +=1
+    def printInfo(self):
+        print('Employee总数：', self.count)
+e = Employee('Li ping', 5000)
+e2 = Employee('Wang yan', 600)
+del e.name
+print(e.__dict__)                                        # {'salary': 5000}
+print(e2.__dict__)                                       # {'name': 'Wang yan', 'salary': 600}
+
+# Python可以通过给类的属性名前添加两个下画线__来禁止外界访问这些属性，加了这两个下画线后属性就成为了私有属性
+class Employee:
+    def __init__(self, name, salary):
+        self.__name = name
+        self.__salary = salary
+    def printInfo(self):
+        print(self.__name, ",", self.__salary)
+e = Employee('Li ping', 5000)
+e2 = Employee('Wang yan', 600)
+e.printInfo()                                           # Li ping , 5000
+e2.printInfo()                                          # Wang yan , 600
+e.__salary = 7000
+e.printInfo()                                           # Li ping , 5000
+print(e.__salary)                                       # 7000
+# 最后一句的“print（e.__salary）”的输出信息为什么又显示7000呢？这是因为，Python可以随时给一个实例绑定实例变量。实际上，e除私有变量外，又多了一个变量__salary，原来的私有变量实际上被Python修改成了_Employee__salary，即在这些名字前加上了一个带下画线的类名。因此，在Python中，实际上是无法真正做到访问控制的，实际上外界仍然是可以访问私有属性的。
+
+# 例如，外界不能直接访问__salary，但还有可以通过修改的名字e._Employee__salary去访问并修改它
+e._Employee__salary = 3100
+e.printInfo()                                           # Li ping , 3100
+print(e._Employee__salary)                              # 3100
+```
+
+### 4.3 派生类
+
+● 可以从一个已有的类定义一个派生类。派生类也称为“子类”，而其依赖的类称为“父类”“基类”或“超类”。派生类（对象）继承了基类（对象）的属性，同时派生类也可以定义自己特有的属性或覆盖基类的同名属性。派生类的方法可以用super（）方法调用其基类的方法
+
+● 派生类可以直接继承多个基类，即从多个基类定义一个派生类，这种定义派生类的方式称为“多重继承”或“多继承”
+
+● 对一个派生类，可以通过属性解析“深度优先，自左向右”的顺序查找其属性
+
+```python
+# Python允许在一个已经存在的类的基础上定义一个新的类，新的类会继承已有类的属性，但也会添加自己特有的一些属性，这个新的类就称为“派生类”或“子类”，而原有的类称为“基类”“父类”或“超类”
+
+# 从一个基类（Base）定义一个新的派生类（Derived）的格式如下：
+class Derived(Base):
+    pass
+
+# 只要在定义类Manager的类名后的圆括号里写入类Employee的类名，类Manager就会自动继承类Employee已有的属性
+class Employee():
+    '这是一个描述公司普通雇员的类'
+    def __init__(self, Name, Salary):
+        self.__name = Name
+        self.__salary = Salary
+    def printInfo(self):
+        print(self.__name, ",", self.__salary)
+    def get_name(self):
+        return self.__name
+    def set_name(self, name):
+        self.__name = name
+class Manager(Employee):
+    pass
+m = Manager('Li ping', 5000)
+m2 = Manager('Wang yan', 600)
+m.printInfo()                                       # Li ping , 5000
+m2.printInfo()                                      # Wang yan , 600
+
+# 内置函数isinstance（）可以检查一个对象是否是某个类的实例（对象）
+print(isinstance(m, Manager))                       # True
+print(isinstance(m, Employee))                      # True
+
+# 下例给类Manager添加不同于类Employee的特有的数据属性，level（经理级别）和employees（管理的雇员列表）
+class Manager(Employee):
+    def __init__(self, name, salary, level, employees):
+        Employee.__init__(self, name, salary)
+        self.__level = level
+        self.__employees = employees
+    def printInfo(self):
+        Employee.printInfo(self)
+        print("经理级别：", self.__level)
+        print("管理的员工有：")
+        for e in self.__employees:
+            print(e.get_name())
+    def get_level(self):
+        return self.__level
+e = Employee('Li ping', 5000)
+e2 = Employee('Wang yan', 600)
+employees = []
+employees.append(e)
+employees.append(e2)
+m = Manager('赵四', 7000, 2, employees)
+m.printInfo()
+print()
+print(m.get_name(), "的级别：", m.get_level())
+
+# 在派生类中可以通过super（）方法来调用父类的方法,使用super（）方法可避免写基类名
+class Manager(Employee):
+    def __init__(self, name, salary, level, employees):
+        super().__init__(self, name, salary)
+        self.__level = level
+        self.__employees = employees
+    def printInfo(self):
+        super().printInfo(self)
+        print("经理级别：", self.__level)
+        print("管理的员工有：")
+        for e in self.__employees:
+            print(e.get_name())
+    def get_level(self):
+        return self.__level
+
+# 子类通过定义和父类同名的属性可以覆盖父类的数据属性和方法
+class Base:
+    cvar = 'hello'
+    bcvar = 3
+    def f(self):
+        var = 2
+        print(Base.cvar, var)
+    def g(self):
+        print('函数g')
+class Derived(Base):
+    cvar = 'derived'
+    def f(self):
+        var = 3.14
+        print(Base.cvar, Derived.cvar, var)
+d = Derived()
+print(d.bcvar)                                              # 3
+print(d.cvar)                                               # derived
+d.g()                                                       # 函数g
+d.f()                                                       # hello derived 3.14
+
+# 一个类可以继承多个类的特性，即可以定义一个从多个类派生出来的派生类
+class Base1:
+    cvar1 = 'base1'
+    def f(self):
+        var1 = 1
+        print(Base1.cvar1, var1)
+    def g(self):
+        print('函数g')
+class Base2:
+    cvar2 = 'base2'
+    def f(self):
+        var2 = 2
+        print(Base2.cvar2, var2)
+class MultiDerived(Base1, Base2):
+    var = [1, 2, 3]
+m = MultiDerived()
+m.g()                                                       # 函数g
+m.f()                                                       # base1 1
+# 虽然派生类继承了类Base1和类Base2的同样签名的f（）方法，但是在调用m.f（）时只调用了类Base1的f（）方法。这是因为，在调用f（）方法时，Python解释器首先在该类自身的方法里寻找这个方法，如未找到，就到其上层基类去寻找，在上层基类中又遵循从左到右的顺序查找。这种深度优先、从左到右寻找一个对象的属性的过程称为“属性解析”。这种寻找类的属性遵循的解析次序称为“方法解析次序”（Method Resolution Order, MRO）
+```
+
+### 4.4 绑定属性
+
+● 可以给一个类或类的对象动态绑定属性。动态绑定方法属性需要使用types模块的
+
+● 对象的__dict__属性是一个包含了该对象其他所有属性的字典对象
+
+● __slots__限制一个类能够添加的属性，可节省内存、提高访问速度。
+
+## 五. 输入/输出
+
+### 5.1 标准的输入/输出
+
+```python
+# Python内置的标准输出函数print（）可以接收多个输出值，这些值之间以逗号隔开，函数print（）请输出的值以空格隔开，并且在输出这些值后还会换到新的一行
+print(2, 3.14, 'hello', [5, 8, 6])                                          # 2 3.14 hello [5, 8, 6]
+
+# 可以通过给函数print（）传递关键字参数sep，以改变输出时输出项之间的分割字符串
+print(2, 3.14, 'hello', [5,8.6], sep='-/')                                  # 2-/3.14-/hello-/[5, 8.6]
+
+# 函数print（）默认在输出的最后输出一个换行符“\n”，即换到新的一行
+
+# 若要改变函数print（）的默认换行操作，则可以给函数print（）的关键字参数end传递一个相应的值
+for i in range(3):
+    print(i, end="+-")                                                      # 0+-1+-2+-
+
+# 格式化输出: %s表示格式串后的输出项name以字符串形式输出，而%.2f表示输出的浮点数用四舍五入保留小数点后两位。格式转换符和输出项是逐一对应的
+# 常见的格式转换符有：%d：整数； %f：浮点数； %s：字符串；%p：数据的内存地址（十六进制）
+name = 'Wang'
+score = 56.345
+print("学生 %s的分数是 %.2f" % (name, score))                                # 学生 Wang的分数是 56.34
+print("该学生的学号是 %d . " % 3)                                            # 该学生的学号是 3 . 
+
+# 可以使用前面介绍过的str的format（）方法对一个字符串格式化。通过{ }和：来代替传统的%方式
+name = 'Wang'
+score = 56.345
+print("学生 {}的分数是 {:.2f}".format(name, score))                         # 学生 Wang的分数是 56.34
+print("该学生的学号是 {} . ".format(3))                                     # 该学生的学号是 3 .
+
+# 可以用str.rjust（）、str.ljust（）、str.center（）控制字符串输出的宽度和字符串的对齐方式（靠右、靠左、中间）
+s = 'hi'
+t = 'the'
+print(s.rjust(5), t.rjust(10))                                              #    hi        the
+print(s.ljust(5), t.ljust(10))                                              # hi    the       
+print(s.center(5), t.center(10))                                            #   hi     the    
+s.rjust(5)
+
+# 标准输入内置函数input()
+name = input("请输入姓名：")
+```
+
+### 5.2 文件读/写
+
+```python
+# 内置函数open（）用于打开一个文件。该函数接收一个文件名（文件路径）作为参数，返回一个文件对象（也称句柄），然后就可以通过这个文件句柄读或修改（写）该文件的内容
+
+```
