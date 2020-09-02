@@ -1245,11 +1245,11 @@ print(str(d))                                                       # {'李平':
 
 ● 关键字class用于定义一个类。一个类具有实例属性和类属性，每个对象都有自己的独立的实例属性。不同对象可具有不同的实例属性，而类属性是所有对象共享的
 
-● 通常，用构造函数__init__（）定义和初始化一个对象的实例属性。在创建一个类的对象（实例）时，类的构造函数会自动被调用。其中，第一个参数self指向（引用）这个创建的对象
+● 通常，用构造函数__init__()定义和初始化一个对象的实例属性。在创建一个类的对象(实例)时，类的构造函数会自动被调用。其中，第一个参数self指向(引用)这个创建的对象
 
 ● 类的实例方法的第一个参数必须是self，用于指向调用这个方法的那个对象
 
-● 在实例方法中，可以通过类名或type（self）访问类属性
+● 在实例方法中，可以通过类名或type(self)访问类属性
 
 ● del运算符用来删除一个变量指向的对象的引用计数，也可以用来删除对象的属性。当对象本身的引用计数为0时，Python的垃圾回收机制会自动回收这个对象占用的内存资源
 
@@ -1259,13 +1259,13 @@ print(str(d))                                                       # {'李平':
 # Python用关键字class定义一个类
 class Employee:
     pass
-# Python创建一个类的实例（对象）是通过一个叫作构造函数的__init__()方法完成的，并且其第一个参数必须是叫作self的参数，这个参数指向（引用）要创建的对象
+# Python创建一个类的实例(对象)是通过一个叫作构造函数的__init__()方法完成的，并且其第一个参数必须是叫作self的参数，这个参数指向(引用)要创建的对象
 class Employee:
     def __init__(self):
         print("Employee构造函数用于创建一个对象")
 e = Employee()                                                       # Employee构造函数用于创建一个对象
 
-# 类的构造函数__init__（）方法除self参数外，还可以传递其他参数，通常传递用于初始化实例属性的参数
+# 类的构造函数__init__()方法除self参数外，还可以传递其他参数，通常传递用于初始化实例属性的参数
 class Employee():
     def __init__(self, Name, Salary):
         self.name = Name
@@ -1273,7 +1273,7 @@ class Employee():
 e = Employee('Li ping', 5000)
 print(e.name, '\t', e.salary)                                       # Li ping 	 5000
 
-# 除构造函数外，还可以给类添加更多的方法（成员函数）
+# 除构造函数外，还可以给类添加更多的方法(成员函数)
 class Employee():
     def __init__(self, Name, Salary):
         self.name = Name
@@ -1308,7 +1308,7 @@ e.set_salary(5500)
 print(e.get_name(), '\t', e.get_salary())                           # Wang Wei 	 5500
 e.printInfo()                                                       # Wang Wei , 5500
 
-# 注：和其他编程语言（如C++）不同，在同一个类中不能定义多个同名但形参不同的成员函数，即不能定义重载成员函数
+# 注：和其他编程语言(如C++)不同，在同一个类中不能定义多个同名但形参不同的成员函数，即不能定义重载成员函数
 
 # 除实例属性外，还可以给一个类定义类属性，类属性是指类的所有对象都共享的属性，是定义在类的方法外面的属性
 class Employee:
@@ -1328,7 +1328,7 @@ print()
 e.printInfo()                                               # Employee总数： 2
 e2.printInfo()                                              # Employee总数： 2
 
-# 类属性是不属于一个具体的类实例（对象）的，通常，可以通过类名.类属性来查询或修改类属性，也可通过实例名.类属性（包括self.类属性）来查询实例属性，但不能通过实例名.类属性（包括self.类属性）的方式来修改类属性，否则就是创建了实例属性，而不是访问类属性
+# 类属性是不属于一个具体的类实例(对象)的，通常，可以通过类名.类属性来查询或修改类属性，也可通过实例名.类属性(包括self.类属性)来查询实例属性，但不能通过实例名.类属性(包括self.类属性)的方式来修改类属性，否则就是创建了实例属性，而不是访问类属性
 class C:
     count=0
     def __init__(self):
@@ -1342,7 +1342,7 @@ c1.inc()
 print(c1.count, c2.count, C.count)                          # 3 2 2
 print(c1.__dict__)                                          # {'count': 3}
 print(c2.__dict__)                                          # {}
-# inc（）方法中的“self.count+=1”等价于“self.count=self.count+1”，赋值语句的左边self.count相当于为这个实例创建该类的一个新的实例属性count，而右边的self.count仅仅是查询，通过这个实例调用inc（）方法时，右边的self.count就是这个实例已经创建好的实例属性count，而不是类属性count
+# inc()方法中的“self.count+=1”等价于“self.count=self.count+1”，赋值语句的左边self.count相当于为这个实例创建该类的一个新的实例属性count，而右边的self.count仅仅是查询，通过这个实例调用inc()方法时，右边的self.count就是这个实例已经创建好的实例属性count，而不是类属性count
 
 # del运算符可以用于删除一个对象的实例属性或类属性
 class Employee:
@@ -1373,7 +1373,7 @@ e2.printInfo()                                          # Wang yan , 600
 e.__salary = 7000
 e.printInfo()                                           # Li ping , 5000
 print(e.__salary)                                       # 7000
-# 最后一句的“print（e.__salary）”的输出信息为什么又显示7000呢？这是因为，Python可以随时给一个实例绑定实例变量。实际上，e除私有变量外，又多了一个变量__salary，原来的私有变量实际上被Python修改成了_Employee__salary，即在这些名字前加上了一个带下画线的类名。因此，在Python中，实际上是无法真正做到访问控制的，实际上外界仍然是可以访问私有属性的。
+# 最后一句的“print(e.__salary)”的输出信息为什么又显示7000呢？这是因为，Python可以随时给一个实例绑定实例变量。实际上，e除私有变量外，又多了一个变量__salary，原来的私有变量实际上被Python修改成了_Employee__salary，即在这些名字前加上了一个带下画线的类名。因此，在Python中，实际上是无法真正做到访问控制的，实际上外界仍然是可以访问私有属性的。
 
 # 例如，外界不能直接访问__salary，但还有可以通过修改的名字e._Employee__salary去访问并修改它
 e._Employee__salary = 3100
@@ -1383,7 +1383,7 @@ print(e._Employee__salary)                              # 3100
 
 ### 4.3 派生类
 
-● 可以从一个已有的类定义一个派生类。派生类也称为“子类”，而其依赖的类称为“父类”“基类”或“超类”。派生类（对象）继承了基类（对象）的属性，同时派生类也可以定义自己特有的属性或覆盖基类的同名属性。派生类的方法可以用super（）方法调用其基类的方法
+● 可以从一个已有的类定义一个派生类。派生类也称为“子类”，而其依赖的类称为“父类”“基类”或“超类”。派生类(对象)继承了基类(对象)的属性，同时派生类也可以定义自己特有的属性或覆盖基类的同名属性。派生类的方法可以用super()方法调用其基类的方法
 
 ● 派生类可以直接继承多个基类，即从多个基类定义一个派生类，这种定义派生类的方式称为“多重继承”或“多继承”
 
@@ -1392,7 +1392,7 @@ print(e._Employee__salary)                              # 3100
 ```python
 # Python允许在一个已经存在的类的基础上定义一个新的类，新的类会继承已有类的属性，但也会添加自己特有的一些属性，这个新的类就称为“派生类”或“子类”，而原有的类称为“基类”“父类”或“超类”
 
-# 从一个基类（Base）定义一个新的派生类（Derived）的格式如下：
+# 从一个基类(Base)定义一个新的派生类(Derived)的格式如下：
 class Derived(Base):
     pass
 
@@ -1415,11 +1415,11 @@ m2 = Manager('Wang yan', 600)
 m.printInfo()                                       # Li ping , 5000
 m2.printInfo()                                      # Wang yan , 600
 
-# 内置函数isinstance（）可以检查一个对象是否是某个类的实例（对象）
+# 内置函数isinstance()可以检查一个对象是否是某个类的实例(对象)
 print(isinstance(m, Manager))                       # True
 print(isinstance(m, Employee))                      # True
 
-# 下例给类Manager添加不同于类Employee的特有的数据属性，level（经理级别）和employees（管理的雇员列表）
+# 下例给类Manager添加不同于类Employee的特有的数据属性，level(经理级别)和employees(管理的雇员列表)
 class Manager(Employee):
     def __init__(self, name, salary, level, employees):
         Employee.__init__(self, name, salary)
@@ -1443,7 +1443,7 @@ m.printInfo()
 print()
 print(m.get_name(), "的级别：", m.get_level())
 
-# 在派生类中可以通过super（）方法来调用父类的方法,使用super（）方法可避免写基类名
+# 在派生类中可以通过super()方法来调用父类的方法,使用super()方法可避免写基类名
 class Manager(Employee):
     def __init__(self, name, salary, level, employees):
         super().__init__(self, name, salary)
@@ -1496,7 +1496,7 @@ class MultiDerived(Base1, Base2):
 m = MultiDerived()
 m.g()                                                       # 函数g
 m.f()                                                       # base1 1
-# 虽然派生类继承了类Base1和类Base2的同样签名的f（）方法，但是在调用m.f（）时只调用了类Base1的f（）方法。这是因为，在调用f（）方法时，Python解释器首先在该类自身的方法里寻找这个方法，如未找到，就到其上层基类去寻找，在上层基类中又遵循从左到右的顺序查找。这种深度优先、从左到右寻找一个对象的属性的过程称为“属性解析”。这种寻找类的属性遵循的解析次序称为“方法解析次序”（Method Resolution Order, MRO）
+# 虽然派生类继承了类Base1和类Base2的同样签名的f()方法，但是在调用m.f()时只调用了类Base1的f()方法。这是因为，在调用f()方法时，Python解释器首先在该类自身的方法里寻找这个方法，如未找到，就到其上层基类去寻找，在上层基类中又遵循从左到右的顺序查找。这种深度优先、从左到右寻找一个对象的属性的过程称为“属性解析”。这种寻找类的属性遵循的解析次序称为“方法解析次序”(Method Resolution Order, MRO)
 ```
 
 ### 4.4 绑定属性
@@ -1511,33 +1511,38 @@ m.f()                                                       # base1 1
 
 ### 5.1 标准的输入/输出
 
+
+● 介绍标准输入函数input()和输出函数print()。可通过C语言风格的%格式串或生成一个格式化新字符串控制print()的输出格式
+
+● 介绍字符串str的格式化方式：一种方式是利用str的format()方法；另一种方式是利用字符串的各种切割、连接等方法。介绍pprint模块的pprint()格式化打印函数、pformat()格式化函数和PrettyPrinter类
+
 ```python
-# Python内置的标准输出函数print（）可以接收多个输出值，这些值之间以逗号隔开，函数print（）请输出的值以空格隔开，并且在输出这些值后还会换到新的一行
+# Python内置的标准输出函数print()可以接收多个输出值，这些值之间以逗号隔开，函数print()请输出的值以空格隔开，并且在输出这些值后还会换到新的一行
 print(2, 3.14, 'hello', [5, 8, 6])                                          # 2 3.14 hello [5, 8, 6]
 
-# 可以通过给函数print（）传递关键字参数sep，以改变输出时输出项之间的分割字符串
+# 可以通过给函数print()传递关键字参数sep，以改变输出时输出项之间的分割字符串
 print(2, 3.14, 'hello', [5,8.6], sep='-/')                                  # 2-/3.14-/hello-/[5, 8.6]
 
-# 函数print（）默认在输出的最后输出一个换行符“\n”，即换到新的一行
+# 函数print()默认在输出的最后输出一个换行符“\n”，即换到新的一行
 
-# 若要改变函数print（）的默认换行操作，则可以给函数print（）的关键字参数end传递一个相应的值
+# 若要改变函数print()的默认换行操作，则可以给函数print()的关键字参数end传递一个相应的值
 for i in range(3):
     print(i, end="+-")                                                      # 0+-1+-2+-
 
 # 格式化输出: %s表示格式串后的输出项name以字符串形式输出，而%.2f表示输出的浮点数用四舍五入保留小数点后两位。格式转换符和输出项是逐一对应的
-# 常见的格式转换符有：%d：整数； %f：浮点数； %s：字符串；%p：数据的内存地址（十六进制）
+# 常见的格式转换符有：%d：整数； %f：浮点数； %s：字符串；%p：数据的内存地址(十六进制)
 name = 'Wang'
 score = 56.345
 print("学生 %s的分数是 %.2f" % (name, score))                                # 学生 Wang的分数是 56.34
 print("该学生的学号是 %d . " % 3)                                            # 该学生的学号是 3 . 
 
-# 可以使用前面介绍过的str的format（）方法对一个字符串格式化。通过{ }和：来代替传统的%方式
+# 可以使用前面介绍过的str的format()方法对一个字符串格式化。通过{ }和：来代替传统的%方式
 name = 'Wang'
 score = 56.345
 print("学生 {}的分数是 {:.2f}".format(name, score))                         # 学生 Wang的分数是 56.34
 print("该学生的学号是 {} . ".format(3))                                     # 该学生的学号是 3 .
 
-# 可以用str.rjust（）、str.ljust（）、str.center（）控制字符串输出的宽度和字符串的对齐方式（靠右、靠左、中间）
+# 可以用str.rjust()、str.ljust()、str.center()控制字符串输出的宽度和字符串的对齐方式(靠右、靠左、中间)
 s = 'hi'
 t = 'the'
 print(s.rjust(5), t.rjust(10))                                              #    hi        the
@@ -1551,7 +1556,262 @@ name = input("请输入姓名：")
 
 ### 5.2 文件读/写
 
-```python
-# 内置函数open（）用于打开一个文件。该函数接收一个文件名（文件路径）作为参数，返回一个文件对象（也称句柄），然后就可以通过这个文件句柄读或修改（写）该文件的内容
+● 内置函数open()用于打开或创建文件，该函数返回一个文件对象。文件访问模式是由几个字符，如’r' 'w' 'a' 'b' '+’组合表示的。文件分为二进制和文本文件
 
+● 通过文件对象的read()方法、write()方法等可以读/写文件内容，通过tell()方法、seek()方法可以查询或改变当前位置
+
+● 文件使用完，要用close()方法关闭。也可以采用with ... as打开文件，以保证文件总能自动被关闭。
+
+```python
+# 内置函数open()用于打开一个文件。该函数接收一个文件名(文件路径)作为参数，返回一个文件对象(也称句柄)，然后就可以通过这个文件句柄读或修改(写)该文件的内容
+# fileObject = open(file_name[, access_mode, buffering])第一个参数file_name是要打开的文件名(文件路径)，后面是可选参数，参数access_mode(访问模式)用一些字符表示使用文件的方式。例如，字符r表示该文件只能读(不能被修改)；字符w表示只能修改(写)这个文件，如果存在同名的文件，则会被擦除；字符a表示以“追加”方式向文件的末尾写入数据；字符r+表示该文件既可以读也可以写。如果没有提供access_mode参数，则该参数默认值是r。可选参数buffering表示读/写文件时的缓冲区的大小，如果被设为0，就不会有缓冲区。如果取负值，则缓冲区大小为系统默认。当设置缓冲区后，读取的文件块的内容首先放入缓冲区，然后才转变为程序的数据。
+
+# fileObject.write(str)向文件对象fileObject代表的文件中写入一个字符串str，并返回写入的字符个数
+f = open('text.txt', 'w')
+count = f.write('Hello, world! ')
+print('写入的字符个数：', count)                                    # 写入的字符个数：13         
+f.close()
+
+# 对于已经存在的文件可以用只读模式('r')打开这个文件，然后可以用read()方法读取文件的全部内容
+f = open('text.txt', 'r')
+f.read()                                                         # 'Hello, world! '
+# 每次读/写完文件，就要及时调用函数close()关闭它，否则容易造成数据丢失或其他程序无法读/写的错误
+
+# 可以使用with...as打开文件，以保证文件的函数close()被自动调用，从而可以防止因忘记调用函数close()而引起的问题
+with open('text.txt', 'w') as f:
+    f.write('教小白精通编程')
+with open('text.txt', 'r') as f:
+    print(f.read())                                              # '教小白精通编程'
+
+# 在文件中已有内容的基础上添加新的内容，调用函数open()时以“追加模式”，即’a’打开文件
+with open('text.txt', 'a') as f:
+    f.write('新的内容')
+with open('text.txt', 'r') as f:
+    print(f.read())                                              # '教小白精通编程新内容'
+
+# 该方法返回读取的字符串(或字节序列)，如果遇到了文件结尾，则返回一个空串
+with open('text.txt', 'r') as f:
+    while True:
+        chunk = f.read(4)
+        if not chunk:
+            break
+        print(chunk, end=" ")                                   # 教小白精 通编程新 内容
+
+# fileObject.readline([size])：从文件对象fileObject表示的文件中读取一行，即从文件对象的当前位置一直读取内容直到遇到换行符\n，或者如果提供了参数size，则最多读取size个字符
+with open('text.txt', 'a') as f:
+    f.write("Hello, world! ")
+    f.write("\n你好")
+    f.write("\nhello")
+with open('text.txt', 'r') as f:
+    while True:
+        line = f.readline()
+        if not line:
+            break
+        print(line.strip, end=" ")  
+
+# fileObject.readlines([sizehint])：读取文件直到结束符EOF，并返回一个列表。如果提供了参数sizehint，那么读取的所有行的字节数不超过sizehint
+with open('text.txt', 'r') as f:
+    for line in f.readlines():
+        print(line.strip()) # 把末尾的'\n'删除
+
+# fileObject.writelines(iterable)：将一个iterable对象表示的一系列字符串写入文件对象fileObject代表的文件中
+f = open(r'test.txt', 'w')
+f.writelines(['hello world', '教小白精通编程'])
+f.close
+f = open(r'test.txt')
+f.read()
+```
+
+## 六. 错误和异常
+
+● 程序的错误分为语法错误和运行时错误，而运行时错误又分为异常错误和逻辑错误
+
+● 可以用try...except程序块对不同的异常错误进行异常处理。异常没有发生时，会执行else子句，而无论异常是否发生或是否处理异常，都会执行finally子句
+
+● 程序员可以自己定义异常类型，也可由程序员自己抛出各种异常
+
+● 自定义清理语句，如with语句，可以确保在任何情况下资源都能得到释放
+
+● 调试程序的方法主要有打印(print())、断言(assert)、日志记录(logging)、用调试工具(pdb模块)等设置断点或单步调试。
+
+### 6.1 错误
+
+● 编写程序时不可避免地会产生各种错误，错误主要有两种，语法错误(syntaxerrors)和运行时错误(run-time error)
+
+● 运行时错误是程序运行过程中出现的错误，又分为异常错误和逻辑错误。语法错误和异常错误都会使程序停止执行，而逻辑错误不会使程序停止执行，但运行结果和预期结果不一致
+
+● 所有内置的错误或异常类都是从一个最基本的异常类BaseException派生出来的
+
+● 有时，程序既没有语法错误，也没有抛出运行时异常错误，即程序能正常执行，但是运行的结果和预期的结果不一致，这种运行时错误称为“逻辑错误”
+
+### 6.2 异常处理
+
+将可能引起异常的代码放在try子句(程序块)中，如果try子句完成后没有异常发生，就会忽略except程序块(也称except子句)继续执行后续代码。如果try子句中代码执行时出现了错误而抛出异常时，except程序块(子句)会处理出现的异常(错误)。一旦异常被except子句处理完，程序就会从“try…except”语句后面的语句继续执行下去。
+
+```python
+# except子句对异常的具体处理，既可能是向用户报告某种发生的错误，也可能是终止程序的执行，还可能继续将异常交给其上一级调用函数处理，甚至也可能什么也不做。
+try:
+    x = int(input('Enter x: '))
+    y = int(input('Enter y: '))
+    print(x/y)
+    print('x/y结果正常')
+except:
+    print('出现了异常！')
+print('hello world!')                                       # Enter x: 3 Enter y: 0 出现了异常！ hello world!
+
+# 在except关键字后面说明具体的异常类型，以捕获这个特定异常类型的异常对象，可以用as关键字给这个类型的异常对象起一个名字
+try:
+    x = int(input('Enter x: '))
+    y = int(input('Enter y: '))
+    print(x/y)
+    print('x/y结果正常')
+except ZeroDivisionError as e:
+    print('x/y出现了除0的错误！', e)
+except ValueError as e:
+    print('类型错误ValueError', e)
+print('hello world!')  
+
+# 如果想处理那些未知类型的异常，则可以在捕获特殊的异常的后面再捕获更一般的异常，由于Exception是大部分异常的父类，通常情况下也可用Exception代替BaseException
+try:
+    x = int(input('Enter x: '))
+    y = int(input('Enter y: '))
+    print(x/y)
+    print('x/y结果正常')
+except ZeroDivisionError as e:
+    print('x/y出现了除0的错误！', e)
+except ValueError as e:
+    print('类型错误ValueError', e)
+except BaseException as e:
+    print('BaseException异常处理！', e)
+print('hello world!')  
+
+# 可以在最后的except子句的后面添加一个else子句，当没有异常发生时，会自动执行else子句。但如果发生了异常，则不会执行这个else子句
+try:
+    x = int(input('Enter x: '))
+    y = int(input('Enter y: '))
+    print(x/y)
+    print('x/y结果正常')
+except ZeroDivisionError as e:
+    print('x/y出现了除0的错误！', e)
+except ValueError as e:
+    print('类型错误ValueError', e)
+except BaseException as e:
+    print('BaseException异常处理！', e)
+else:
+    print('没有任何异常！')
+print('hello world!')  
+
+# 和else子句不同，try异常处理语句后面的finally子句无论有没有出现异常都会被执行
+try:
+    x = 1/1
+    print(x)
+finally:
+    print('无论是否出现异常，是否处理异常，总是会执行这一句')
+
+# Python解释器在运行时可以自动抛出异常，程序员也可以在任何代码处用raise抛出异常
+try:
+    score = float(input('请输入分数：'))
+    if score < 0:
+        raise ValueError('出现了值异常错误！')
+except ValueError as e:
+    print(e)
+```
+
+### 6.3 调试程序
+
+调试一个程序通常有下面几种方法:
+
+● 用函数print()等在代码的不同位置输出一些数据，查看这些输出值是否和预期值一致
+
+● 在代码中不同位置插入断言语句，检查某个条件是否满足
+
+● 使用日志logging功能，类似print()的调试方法，只不过日志是将调试信息输出到文件中，以方便程序员通过日志文件分析程序的错误原因
+
+● 用调试工具通过设置断点或单步执行检查相应变量值，找出引起错误的原因
+
+## 七. 高级语法特性
+
+### 7.1 容器、可迭代对象、迭代器、生成器
+
+生成器函数与包含return的函数执行机制区别如下:
+
+● 包含return的函数当遇到return语句时，会停止函数执行并返回，函数的每次执行都是独立的，且是从头开始执行的，不会保存上一次执行的状态和位置
+
+● 包含yield的生成器函数用于产生一系列值，每次执行时当遇到yield语句时会停止执行并返回yield语句的结果，但内部会保留上一次执行的状态，下一次执行时将从上一次的yield之后的代码继续执行，直到再次遇到yield时返回
+
+```python
+# 生成器函数是指包含yield关键字的函数，其格式是：
+def gen(n):
+    for i in range(n):
+        yield i
+# 函数gen()就是一个生成器函数，其中以关键字yield开头的语句会产生一个返回值。通过传递相应的参数给这个生成器函数，可以创建一个生成器对象
+g = gen(5)
+print(g)                                                    # <generator object gen at 0x7f6086eab900>
+print(typeg())                                              # <class 'generator'>
+``` 
+
+### 7.2 @property
+
+● getters()和setters()是面向对象为了达到数据封装效果的常用方法，可以用这些方法作为接口去访问私有数据属性
+
+● 函数property()是一个装饰器函数，通过装饰器函数property()包裹了相应的数据属性getters()和setters()方法，从而使其可以直接通过成员访问运算符．去访问这些属性
+
+● @property比直接调用函数property()更加方便。对于某个数据属性的getter()方法，在前面添加@property，就可以直接查询类对象的这个方法对应的数据属性，而对于某个数据属性的setter()方法，在前面添加@xxx.setter，就可以直接修改类对象的这个方法对应的数据属性。
+
+```python
+class Employee:
+    def __init__(self, name, salary=0):
+        self.__name = name
+        self.__salary = salary
+
+    def printInfo(self):
+        print(self.__name, ",", self.__salary)
+    
+    @property
+    def name(self):
+        return self.__name
+    
+    @name.setter
+    def name(self, name):
+        self.__name = name
+
+    @property
+    def salary(self):
+        return self.__salary
+    
+    @salary.setter
+    def salary(self, salary):
+        if(salary<0):
+            self.__salary = 0
+        else:
+            self.__salary = salary
+e = Employee('Wang', 1000)
+e.salary = 8000
+e.printInfo()                                           # Wang , 8000
+e.salary = -200
+e.name = 'Li Ping'
+e.printInfo()                                           # Li Ping , 0
+```
+
+### 7.3 类的静态方法和类方法
+
+● 类的方法有实例方法、静态方法和类方法。实例方法的第一个参数必须是self，用于指向调用这个方法的类的实例。而类方法用@classmethod装饰器来创建，其第一个参数必须是cls，用于指向调用这个方法的类本身。静态方法用@staticmethod装饰器来创建，和普通的外部函数一样，没有任何隐式参数
+
+● 类的静态方法通常处理和类相关的数据，而类的类方法通常处理类本身的数据
+
+● 实例方法只能通过类的实例来调用，而类的静态方法和类方法既可以通过类名也可以通过类的实例来调用
+
+```python
+# 类的静态方法用装饰器@staticmethod开头，没有任何和类或类的实例有关的隐式参数(如self)
+# 类的静态方法既可以通过类名访问，也可以通过类的实例去访问
+class C:
+    @staticmethod
+    def static_f(arg1, arg2, ...):
+        ...
+
+# 类的类方法用装饰器@classmethod开头，其第一个参数是表示类本身的隐式参数cls
+class C:
+    @classmethod
+    def class_f(cls, arg1, arg2, ...):
+        ...
 ```
