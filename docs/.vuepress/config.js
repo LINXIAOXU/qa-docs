@@ -35,6 +35,7 @@ module.exports = {
                   '/others/git.md',
                   '/others/redis.md',
                   '/others/charles.md',
+                  '/others/jenkins.md',
                   '/others/http-request.md',
                   '/others/attention-point.md'
                 ]
