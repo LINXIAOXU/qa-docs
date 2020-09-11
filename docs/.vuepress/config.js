@@ -74,7 +74,8 @@ module.exports = {
                 title: '读书笔记',
                 children: [
                   '/notes/2020-08-03.md',
-                  '/notes/2020-09-07.md'
+                  '/notes/2020-09-07.md',
+                  '/notes/2020-09-09.md'
                 ]
               },
             ]
