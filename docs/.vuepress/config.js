@@ -16,7 +16,7 @@ module.exports = {
           items: [
             { text: '零碎知识', link: '/others/vuepress.md' },
             { text: '测试基础', link: '/base/test-definition.md' },
-            { text: '自动化学习', link: '/code/mocha.md' },
+            { text: '代码学习', link: '/code/mocha.md' },
             { text: 'Linux学习', link: '/linux/other.md' }
           ]
         },
@@ -57,7 +57,8 @@ module.exports = {
                 children: [
                   '/code/mocha.md',
                   '/code/selenium.md',
-                  '/code/python.md'
+                  '/code/python.md',
+                  '/code/python-interface.md'
                 ]
               },
               {
