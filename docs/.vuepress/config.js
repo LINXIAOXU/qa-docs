@@ -45,6 +45,7 @@ module.exports = {
                 children: [
                   '/base/test-definition.md',
                   '/base/test-classification.md',
+                  '/base/test-principles.md',
                   '/base/test-plan.md',
                   '/base/test-points.md',
                   '/base/test-case-design.md',
