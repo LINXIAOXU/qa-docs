@@ -37,7 +37,8 @@ module.exports = {
                   '/others/charles.md',
                   '/others/jenkins.md',
                   '/others/http-request.md',
-                  '/others/attention-point.md'
+                  '/others/attention-point.md',
+                  '/others/automation-framework.md'
                 ]
               },
               {
@@ -56,10 +57,11 @@ module.exports = {
               {
                 title: '代码学习',
                 children: [
-                  '/code/mocha.md',
-                  '/code/selenium.md',
+                  '/code/monkey.md',
                   '/code/python.md',
-                  '/code/python-interface.md'
+                  '/code/python-interface.md',
+                  '/code/selenium.md',
+                  '/code/mocha.md'
                 ]
               },
               {
@@ -78,7 +80,8 @@ module.exports = {
                   '/notes/2020-08-03.md',
                   '/notes/2020-09-07.md',
                   '/notes/2020-09-09.md',
-                  '/notes/2020-10-10.md'
+                  '/notes/2020-10-10.md',
+                  '/notes/2020-10-13.md'
                 ]
               },
             ]

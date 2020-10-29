@@ -1,6 +1,6 @@
-# Python + Selenium WebDriver
+# Selenium WebDriver 框架
 
-## Selenium定义
+## 一. Selenium定义
 
 Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera等。这个工具的主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。测试系统功能——创建回归测试检验软件功能和用户需求。支持自动录制动作和自动生成 .Net、Java、Perl等不同语言的测试脚本。
 
@@ -8,9 +8,62 @@ Selenium WebDriver是一个被打了包的模块，该模块内部封装了一�
 
 __使用Xpath来实现对网页元素的精准定位__
 
-## Xpath之相对路径定位法
+## 二. Selenium工具组
 
-1. 相对路径加id属性进行元素定位
+### 1. Selenium IDE：一个火狐插件
+
+点击这个插件就进入录制界面，能够记录用户的操作，并且将其导出为可重复使用的测试脚本，并且支持多种语言
+
+优点：
+
+无需编程技能即可快速上手
+
+缺点：
+
+1. 分散的脚本不可重用且难以维护，一旦UI发生变化测试就很受影响。
+2. 系统在测试之前必须可用。不适用于ATDD
+3. 仅支持firefox，不支持其他浏览器，无法做浏览器兼容性测试
+
+应用：主要用来创建快速的bug重现脚本，以帮助用户进行自动化辅助的探索性测试
+
+### 2. selenium RC（Selenium 1）已被废弃
+
+运行原理：在浏览器中注入javaScript（selenium core）来执行测试
+
+优点：
+
+支持的浏览器多，几乎支持所有的浏览器
+
+缺点 ：
+
+1. 需要开始selenium server服务。
+2. 为了防止恶意的javaScript，所有浏览器都加强了对javaScript的安全策略，所以有些场景selenium 1没法支持。（浏览器由于安全问题不允许不同域之间的JS调用，而selenium1中的工作方式就是在宿主页面注入JS并且通过调用JS来执行测试操作的）
+3. 编程方式更偏向于面向过程，可能会导致项目中一大堆重复的方法
+
+### 3. selenium 2（webdriver）
+
+运行原理：通过原生浏览器支持或者是浏览器扩展直接控制浏览器。(原生浏览器是指火狐、IE、谷歌（Chrome）、Safari、Opera等这一类拥有完整独立内核的浏览器)
+
+优点：
+
+1. 提供了一套友好的API，使得自动化测试代码的可读性和可维护性大大提高
+2. 相对selenium1来说，selenium2的运行速度快些。
+3. 可以驱动本地浏览器，从而确保测试的行为能够尽可能地接近于用户行为
+4. 能够绕过js限制
+5. 支持Android(AndroidDriver)和iPhone(iPhoneDriver)的移动应用测试。
+6. 还可以做无界面的前端自动化测试，HtmlDriver
+
+缺点：
+
+支持的浏览器少，firefox(FriefoxDriver)，ie(InternetExploerDriver)，opera(OperaDriver)，chrome（ChromeDriver）
+
+### 4. Selenium Grid
+
+能够让测试用例在不同环境不同时间并行测试，从而提高测试效率。支持selenium 1和selenium2。Selenium Grid一般用于分布式测试和集群测试，需要在多台机器同时执行测试时，可以选择使用该工具。
+
+## 三. Xpath之相对路径定位法
+
+### 1. 相对路径加id属性进行元素定位
 
 如果一个节点含有id属性，那么毫无疑问就应该选择id属性来进行定位，因为id的属性值具有唯一性，可以唯一标识该网页元素。
 
@@ -21,13 +74,13 @@ __使用Xpath来实现对网页元素的精准定位__
 //a[@id="login_home"]表示在当前HTML文档中找到一个id属性为“login_home”的a节点
 ```
 
-2. 相对路径加非id属性进行元素定位
+### 2. 相对路径加非id属性进行元素定位
 
 ```
 基本格式：//任意节点[@非id的任意属性="属性值"]    如表达式：//input[@name="login_home"]
 ```
 
-3. 相对路径加contains()函数进行元素定位
+### 3. 相对路径加contains()函数进行元素定位
 
 如果一个节点既没有id属性，其他属性也不具备唯一性，但该元素包含有元素信息，且该信息具有唯一性，那么此时可以用相对路径加contains(text(),'')来进行定位。
 
@@ -37,7 +90,7 @@ __使用Xpath来实现对网页元素的精准定位__
 如表达式：//a[contains(text(),'新闻活动')]  该表达式表示：在当前HTML文档中找到一个包含文本信息“新闻活动”的a节点
 ```
 
-4. 相对路径加非id属性加contains()函数进行元素定位
+### 4. 相对路径加非id属性加contains()函数进行元素定位
 
 ```
 基本格式：//包含有文本信息的节点[@非id的任意属性="属性值"][contains(text(),'文本信息')]
@@ -48,13 +101,15 @@ __使用Xpath来实现对网页元素的精准定位__
 
 5. 通过浏览器自带工具自动生成路径表达式
 
-## Selenium WebDriver之初步应用
+更多关于XPath的信息可参考：https://www.w3school.com.cn/xpath/index.asp
 
-### 一、安装Selenium WebDriver
+## 四. Selenium WebDriver之初步应用
+
+### 1. 安装Selenium WebDriver
 
 因为Selenium WebDriver是一个第三方模块并不是Python的标准模块，因此用Python自带的pip来安装，可以执行`pip install selenium `，安装成功后还需要检查是否安装成功，可以执行`pip show selenium`，如果要卸载Selenium WebDriver，可以执行`pip uniustall selenium`
 
-### 二、在mac中配置Chrome浏览器的驱动程序
+### 2. 在mac中配置Chrome浏览器的驱动程序
 
 当调用Selenium WebDriver模块中的方法去操作浏览器和网页元素定位时，需要加载浏览器的驱动程序，因此要配置对应浏览器的驱动程序。
 
@@ -64,7 +119,7 @@ __使用Xpath来实现对网页元素的精准定位__
 
 注意 ：chromedriver的版本要与你使用的chrome版本对应
 
-#### 2.1 将Chromedriver放到/usr/bin/路径
+#### 2.2 将Chromedriver放到/usr/bin/路径
 
 mac系统在10.11版本之后就不能修改usr、bin等系统文件夹的内容了。要开启权限需要进入保护模式：
 
@@ -78,7 +133,7 @@ mac系统在10.11版本之后就不能修改usr、bin等系统文件夹的内容
 
 5、重启，command+C复制Chromedriver，在finder中通过‘前往-->前往文件夹-->输入/usr/’进入usr隐藏文件夹，然后进入bin，command+V，再输入一次用户密码，就可以把Chromedriver复制到/usr/bin/了（之所以这么麻烦是因为在终端用cp指令复制还是显示没有权限）
 
-### 三、Selenium WebDriver之初步应用
+### 3. Selenium WebDriver之初步应用
 
 #### 3.1 导入Selenium WebDriver模块
 
@@ -124,3 +179,4 @@ mac系统在10.11版本之后就不能修改usr、bin等系统文件夹的内容
 参考文献：
 
 1. 零基础快速入行入职：软件测试工程师 江楚
+2. https://www.w3school.com.cn/xpath/index.asp
