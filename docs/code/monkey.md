@@ -185,7 +185,7 @@ adb shell monkey -p com.zhangyun.bravo --pct-touch 40 --pct-motion 25 --pct-apps
 # 6) 使用-v指定log的详细级别，500000表示执行500000次伪随机事情
 ```
 
-技巧:
+__技巧:__
 
 查找应用包名的方法有很多，这里简单列举几个常用的方法：
 
@@ -240,6 +240,107 @@ DispatchPress(KEYCODE_HOME)
 15. UserWait(sleepTime) ：睡眠指定时间
 16. DeviceWakeUp() ：唤醒屏幕
 
-技巧
+__技巧:__
 
 Monkey脚本只能通过坐标的方式来定位点击和移动事件的屏幕位置，这里就需要提前获取坐标信息。获取坐标信息的方法很多，最简单的方法就是打开手机中的开发人员选项，打开“显示指针位置”。随后，在屏幕上的每次操作，在导航栏上都会显示坐标信息。
+
+```shell
+# 这里要测试的是应用宝App，测试的操作是打开应用宝，点击输入框，输入“yyb”，点击搜索。搜索完成后，点击返回键返回应用宝首页。
+
+# 首先，将在本地编写的测试脚本命名为monkey.script，脚本如下所示
+# 启动测试
+type = user
+count = 49
+speed = 1.0
+# 启动应用宝
+LaunchActivity(com.tencent.android.qqdownloader, com.temcent.assistant.activity.SplashActivity)
+UserWaid(2000)
+# 点击搜索框
+Tap(463, 150, 1000)
+UserWait(2000)
+# 输入字母“yyb”
+DispatchString(yyb)
+UserWait(2000)
+# 点击搜索
+Tap(960, 150, 1000)
+UserWait(2000)
+# 点击返回键返回首页
+DispatchPress(KEYCODE_BACK)
+
+# 其次，将文件push到手机或模拟器的sdcard中
+adb push monkey.script /sdcard/
+
+# 最后，执行脚本
+adb shell monkey -f /sdcard/monkey.script -v 1
+```
+
+__技巧:__
+
+查找应用Activity名称的方法有很多，这里简单列举几个常用的方法：
+
+(1) 通过包名查看Activity名称
+
+```shell
+adb shell dumpsys package [包名]
+```
+
+(2) 使用aapt
+
+**2.1.3 结合辅助命令，获取更多信息**
+
+测试除了想知道执行过程是否有异常，还需要能获取执行过程中的一些详细信息或性能数据，比如想知道Monkey执行过程中是否存在内存泄漏，需要获取内存信息。下面列举了几种Monkey测试中常用的辅助命令，使用方法也非常简单，只要在执行Monkey的同时，另起一个CMD命令行窗口输入对应命令执行即可。
+
+```shell
+# 1. 获取logcat日志信息：
+adb shell logcat -v time>log.txt
+# 2. 获取内存信息：
+adb shell dumpsys meminfo <进程名>
+# 3. 获取CPU消耗信息：
+adb shell top -n 1 | find <进程名>
+# 4. 获取电量信息：
+adb shell dumpsys battery
+# 5. 获取GPU信息：
+adb shell dumpsys gfxinfo <进程名>
+# 6. 获取流量信息：
+adb shell cat /proc/uid_stat/<被测应用的uid>/tcp_rcv
+```
+
+__技巧：__
+
+如何获取被测应用的UID
+
+步骤1：查看被测应用的进程ID（PID）
+
+```shell
+adb shell ps | grep <被测应用包名>
+```
+
+步骤2：查看被测应用的用户ID（UID）
+
+```shell
+adb shell cat /proc/<进程id>/status
+```
+
+**2.1.4 Monkey测试策略制定思路**
+
+前面介绍了几种常见的Monkey测试方法，但在实际项目中，选择哪种Monkey测试策略，则需要根据实际项目的情况来做判断。主要是看测试目的及被测应用自身的特点。假如我们想测试浏览器的双指缩放功能是否有异常，那就需要选择--pct-pinchzoom参数，调大双指缩放事件的占比进行Monkey测试；假如我们想验证ROM的横竖屏切换功能是否正常，那就需要选择--pct-rotation参数，调大横竖屏切换事件的占比进行Monkey测试；假如我们想验证重复某种特定操作时，应用是否会存在异常，那可以选择-f参数，自定义Monkey脚本进行验证；假如我们想验证长时间操作时应用是否会存在内存泄漏，那就需要结合-hprof参数和dumpsysmeminfo <进程名>进行Monkey测试。
+
+总之，Monkey测试策略是需要依据测试目的和被测程序的特点来制定的。
+
+### 2.2 Monkey日志分析
+
+**2.2.1 Monkey日志保存方法**
+
+```shell
+# 1. 保存再PC中，代码如下：
+abd shell monkey [option] <count> > d:\monkey.txt
+# 2. 保存在手机中，代码如下
+adb shell 
+monkey [option] <count> > /mnt/sdcard/monkey.txt
+# 3. 标注流与错误流分开保存，代码如下：
+adb shell
+monkey [option] <count> 1> /sdcard/monkey.txt 2>/sdcard/error.txt
+```
+
+**2.2.2 Monkey日志内容解析**
+
