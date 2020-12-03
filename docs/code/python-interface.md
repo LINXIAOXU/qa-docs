@@ -18,12 +18,12 @@
 ```python
 # 文件位置
 common
-  __init__.py
-  config.py
-  db.py
-  redis.py
+|- __init__.py
+|- config.py
+|- db.py
+|- redis.py
 data
-  topics.json
+|- topics.json
 config.yaml
 fetch_topics_to_json_file.py
 create_topic_novel_relation.py
