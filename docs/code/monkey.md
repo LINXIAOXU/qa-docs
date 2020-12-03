@@ -4,7 +4,7 @@
 
 ### 1.1 Monkey概况
 
-Monkey是Google提供的一个命令行工具，可运行在模拟器或实际设备中。它向系统发送伪随机的用户事件，模拟用户的按键输入、触摸屏输入、手势输入等，从而对正在运行的应用程序进行压力测试，目的是看设备多长时间会出现异常，并观察系统的**稳定性和容错性能**。[官网](https://developer.android.com/studio/test/monkey)
+Monkey是Google提供的一个命令行工具，可运行在模拟器或实际设备中。它向系统发送伪随机的用户事件，模拟用户的按键输入、触摸屏输入、手势输入等，从而对正在运行的应用程序进行压力测试，目的是看设备多长时间会出现异常，并观察系统的**稳定性和容错性能**。[官网](https://developer.android.google.cn/studio/test/monkey?hl=zh_cn)
 
 Monkey程序是Android系统自带的，其启动脚本是位于Android系统的/system/bin目录的Monkey文件，其jar包是位于Android系统的/system/framework目录的Monkey.jar文件。用户主要是通过adb 命令来启动Monkey的。同时，Monkey还会对测试系统进行监测，当出现以下三种情况时会进行特殊处理：
 * 如限定了Monkey运行在特定包上，当监测到试图转到其他包的操作，将对其进行阻止。
@@ -344,3 +344,4 @@ monkey [option] <count> 1> /sdcard/monkey.txt 2>/sdcard/error.txt
 
 **2.2.2 Monkey日志内容解析**
 
+Monkey运行时输出的日志一般包含四类信息，分别是测试命令信息、伪随机事件流信息、异常信息、Monkey执行结果信息。要统计Monkey日志中错误出现的次数也非常简单，只要搜索关键字“ANR”和“CRASH”出现的次数即可。

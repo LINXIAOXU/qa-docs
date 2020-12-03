@@ -9,7 +9,7 @@ module.exports = {
       }
     },
     themeConfig: {
-      sidebarDepth: 2,
+      sidebarDepth: 3,
       nav: [
         { 
           text: '分类',
@@ -58,6 +58,7 @@ module.exports = {
                 title: '代码学习',
                 children: [
                   '/code/monkey.md',
+                  '/code/appium.md',
                   '/code/python.md',
                   '/code/python-interface.md',
                   '/code/selenium.md',
