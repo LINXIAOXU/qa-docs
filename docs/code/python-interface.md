@@ -16,6 +16,18 @@
 ## 连接数据库——pymysql
 
 ```python
+# 文件位置
+common
+  __init__.py
+  config.py
+  db.py
+  redis.py
+data
+  topics.json
+config.yaml
+fetch_topics_to_json_file.py
+create_topic_novel_relation.py
+
 # config.yaml
 redis:
   main:
@@ -115,15 +127,6 @@ db_sharding:
     table_name_prefix: 'tbl_welth_log_'
     table_count: 8
 
-channel:
-  # multi_sub_domain: 多子域模式(默认), union_domain: 统一域名模式
-  domain_mode: 'multi_sub_domain'
-  protocol: 'http'
-  # 渠道基础域名 (多子域模式有效)
-  base_domain: 'dev.sigcms.com'
-  # 渠道域名 (统一域名模式有效)
-  domain: 'm.dev.sigcms.com'
-
 # config.py
 import yaml
 
@@ -163,6 +166,15 @@ def find_one(cursor, sql):
     cursor.execute(sql)
     return cursor.fetchone()
 
+# redis.py
+from common import config
+import redis
+
+def get_client():
+    c = config.get_config()
+    redis_config = c['redis']['main']
+    return redis.Redis(host=redis_config['host'], port=redis_config['port'], db=0, password=redis_config['password'])
+
 # fetch_topics_to_json_file.py
 from common import utils, db
 
@@ -186,6 +198,40 @@ if __name__ == '__main__':
 
             utils.write_json_to_file('data/topics.json', result)
 
+    finally:
+        connection.close()
+
+# create_topic_novel_relation.py
+import json
+import random
+from common import utils, db
+
+"""
+创建专题和小说的关联数据
+"""
+
+if __name__ == '__main__':
+    connection = db.get_connection('main')
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("TRUNCATE tbl_topic_novel_relation")
+
+            cursor.execute("SELECT id, title FROM tbl_novels")
+            db_novels = cursor.fetchall()
+            cursor.execute("SELECT id, title FROM tbl_topic")
+            db_topics = cursor.fetchall()
+
+            for topic in db_topics:
+                novels = random.sample(db_novels, random.randint(20, 50))
+                print(f"开始给专题{topic['title']}添加小说")
+
+                index = 1
+                for novel in novels:
+                    db.insert(cursor, 'tbl_topic_novel_relation', dict(topic_id=topic['id'], novel_id=novel['id'], sort_order=index))
+                    index = index + 1
+
+            connection.commit()
+                
     finally:
         connection.close()
 ```

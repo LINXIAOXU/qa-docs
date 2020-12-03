@@ -117,6 +117,9 @@ desired_caps['appPackage'] = 'com.zhangyun.bravo'
 desired_caps['appActivity'] = 'com.zhangzhongyun.inovel.MainActivity'
 # 每台移动设备或模拟器的设备名，设备名是唯一的。
 desired_caps['deviceName'] = 'dd7a223e'
+
+#启动服务器地址，后面跟的是手机信息
+dirver = webdriver.Remote('http://0.0.0.0:4723/wd/hub', desired_caps)
 ```
 
 #### 2.1.1 获取移动设备的设备名的方法
@@ -149,3 +152,5 @@ desired_caps['deviceName'] = 'dd7a223e'
 #### 2.1.4 Appium连接移动设备或模拟器的常用参数
 
 参考这个文档[文档](http://appium.io/docs/cn/writing-running-appium/caps/)
+
+https://www.cnblogs.com/du-hong/p/11003755.html
