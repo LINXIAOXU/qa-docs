@@ -62,6 +62,7 @@ module.exports = {
                   '/code/python.md',
                   '/code/python-interface.md',
                   '/code/selenium.md',
+                  '/code/chrome-extend.md',
                   '/code/mocha.md'
                 ]
               },
