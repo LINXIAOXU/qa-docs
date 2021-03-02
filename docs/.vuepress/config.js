@@ -83,7 +83,8 @@ module.exports = {
                   '/notes/2020-09-07.md',
                   '/notes/2020-09-09.md',
                   '/notes/2020-10-10.md',
-                  '/notes/2020-10-13.md'
+                  '/notes/2020-10-13.md',
+                  '/notes/english.md'
                 ]
               },
             ]

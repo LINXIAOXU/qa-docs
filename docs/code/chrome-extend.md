@@ -195,9 +195,26 @@ function injectCustomJs(jsPath)
 }
 ```
 
-## 二. 具体实现
+## 二. Chrome插件的8种展示形式
 
-### 2.1 文件目录
+### 2.1 browserAction(浏览器右上角)
+
+通过配置browser_action可以在浏览器的右上角增加一个图标，一个browser_action可以拥有一个图标，一个tooltip，一个badge和一个popup。
+
+```js
+"browser_action":
+{
+	"default_icon": "img/icon.png",
+	"default_title": "这是一个示例Chrome插件",
+	"default_popup": "popup.html"
+}
+```
+
+
+
+## 三. 具体实现
+
+### 3.1 文件目录
 
 ```
 web-practise
