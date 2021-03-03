@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>python 接口测试 | 个人文档</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/qa-docs/assets/css/0.styles.f43b2e62.css" as="style"><link rel="preload" href="/qa-docs/assets/js/app.2bd587af.js" as="script"><link rel="preload" href="/qa-docs/assets/js/2.55548560.js" as="script"><link rel="preload" href="/qa-docs/assets/js/20.43affe03.js" as="script"><link rel="prefetch" href="/qa-docs/assets/js/10.32725041.js"><link rel="prefetch" href="/qa-docs/assets/js/11.bbf50494.js"><link rel="prefetch" href="/qa-docs/assets/js/12.2a726b15.js"><link rel="prefetch" href="/qa-docs/assets/js/13.9b186a30.js"><link rel="prefetch" href="/qa-docs/assets/js/14.46605d23.js"><link rel="prefetch" href="/qa-docs/assets/js/15.4601782d.js"><link rel="prefetch" href="/qa-docs/assets/js/16.298fb897.js"><link rel="prefetch" href="/qa-docs/assets/js/17.81f10f93.js"><link rel="prefetch" href="/qa-docs/assets/js/18.ceaab69b.js"><link rel="prefetch" href="/qa-docs/assets/js/19.849d893d.js"><link rel="prefetch" href="/qa-docs/assets/js/21.88f41ed7.js"><link rel="prefetch" href="/qa-docs/assets/js/22.8f2279ab.js"><link rel="prefetch" href="/qa-docs/assets/js/23.8237b5dd.js"><link rel="prefetch" href="/qa-docs/assets/js/24.0ce42693.js"><link rel="prefetch" href="/qa-docs/assets/js/25.a3d8170f.js"><link rel="prefetch" href="/qa-docs/assets/js/26.55ac7813.js"><link rel="prefetch" href="/qa-docs/assets/js/27.21c1eb49.js"><link rel="prefetch" href="/qa-docs/assets/js/28.2cd0c907.js"><link rel="prefetch" href="/qa-docs/assets/js/29.319b3c73.js"><link rel="prefetch" href="/qa-docs/assets/js/3.43cd6a97.js"><link rel="prefetch" href="/qa-docs/assets/js/30.d123c4e7.js"><link rel="prefetch" href="/qa-docs/assets/js/31.6dca4b70.js"><link rel="prefetch" href="/qa-docs/assets/js/32.aa9225d2.js"><link rel="prefetch" href="/qa-docs/assets/js/33.014ee765.js"><link rel="prefetch" href="/qa-docs/assets/js/34.76409d0b.js"><link rel="prefetch" href="/qa-docs/assets/js/35.1bde1443.js"><link rel="prefetch" href="/qa-docs/assets/js/36.9499315a.js"><link rel="prefetch" href="/qa-docs/assets/js/37.d127a34f.js"><link rel="prefetch" href="/qa-docs/assets/js/38.1d0aa752.js"><link rel="prefetch" href="/qa-docs/assets/js/4.4bfa328b.js"><link rel="prefetch" href="/qa-docs/assets/js/5.75acb701.js"><link rel="prefetch" href="/qa-docs/assets/js/6.c6ebb175.js"><link rel="prefetch" href="/qa-docs/assets/js/7.0458a7d1.js"><link rel="prefetch" href="/qa-docs/assets/js/8.80656290.js"><link rel="prefetch" href="/qa-docs/assets/js/9.70f96fc6.js">
+    <link rel="stylesheet" href="/qa-docs/assets/css/0.styles.f43b2e62.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/qa-docs/" class="home-link router-link-active"><!----> <span class="site-name">个人文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="分类" class="dropdown-title"><span class="title">分类</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/qa-docs/others/vuepress.html" class="nav-link">
+  零碎知识
+</a></li><li class="dropdown-item"><!----> <a href="/qa-docs/base/test-definition.html" class="nav-link">
+  测试基础
+</a></li><li class="dropdown-item"><!----> <a href="/qa-docs/code/mocha.html" class="nav-link">
+  代码学习
+</a></li><li class="dropdown-item"><!----> <a href="/qa-docs/linux/other.html" class="nav-link">
+  Linux学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="分类" class="dropdown-title"><span class="title">分类</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/qa-docs/others/vuepress.html" class="nav-link">
+  零碎知识
+</a></li><li class="dropdown-item"><!----> <a href="/qa-docs/base/test-definition.html" class="nav-link">
+  测试基础
+</a></li><li class="dropdown-item"><!----> <a href="/qa-docs/code/mocha.html" class="nav-link">
+  代码学习
+</a></li><li class="dropdown-item"><!----> <a href="/qa-docs/linux/other.html" class="nav-link">
+  Linux学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>零碎知识</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>测试基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>代码学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/qa-docs/code/monkey.html" class="sidebar-link">Monkey文档</a></li><li><a href="/qa-docs/code/appium.html" class="sidebar-link">Appium基础</a></li><li><a href="/qa-docs/code/python.html" class="sidebar-link">Python 基础</a></li><li><a href="/qa-docs/code/python-interface.html" aria-current="page" class="active sidebar-link">python 接口测试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/qa-docs/code/python-interface.html#自动化的检查登记" class="sidebar-link">自动化的检查登记</a></li><li class="sidebar-sub-header"><a href="/qa-docs/code/python-interface.html#接口测试用例设计-总纲" class="sidebar-link">接口测试用例设计——总纲</a></li><li class="sidebar-sub-header"><a href="/qa-docs/code/python-interface.html#连接数据库-pymysql" class="sidebar-link">连接数据库——pymysql</a></li></ul></li><li><a href="/qa-docs/code/selenium.html" class="sidebar-link">Selenium WebDriver 框架</a></li><li><a href="/qa-docs/code/chrome-extend.html" class="sidebar-link">chrome扩展+webpack自动打包</a></li><li><a href="/qa-docs/code/mocha.html" class="sidebar-link">MOCHA 测试框架</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>读书笔记</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="python-接口测试"><a href="#python-接口测试" class="header-anchor">#</a> python 接口测试</h1> <h2 id="自动化的检查登记"><a href="#自动化的检查登记" class="header-anchor">#</a> 自动化的检查登记</h2> <ul><li>HTTP Code 检查：判断HTTP请求的结果，如果返回的是200则表示正常</li> <li>Interface ReturnCode 检查：接口返回包的关键参数，是接口正确性的第一要素</li> <li>Interface 结构完整性检查：返回包层级正确性，保证返回数据结构性正确</li> <li>Interface 参数完整性检查：返回包所包含的参数集合，在结构完整性正确后检查，可保证必要参数的存在及其正确性</li> <li>Interface 特殊参数值检查：特殊参数值检查，不宜过多，有别于ReturnCode检查，偏向于包数据</li></ul> <h2 id="接口测试用例设计-总纲"><a href="#接口测试用例设计-总纲" class="header-anchor">#</a> 接口测试用例设计——总纲</h2> <ol><li>第一个维度——参数校验。从参数组合的角度，应尽可能多地覆盖参数组合场景。</li> <li>第二个维度——逻辑校验。应结合“该接口处理的业务逻辑与底层数据存储”来设计对应的场景。这其实也是参数的组合，只不过，这种参数组合是为了校验逻辑而有针对性地设计的</li></ol> <h2 id="连接数据库-pymysql"><a href="#连接数据库-pymysql" class="header-anchor">#</a> 连接数据库——pymysql</h2> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># 文件位置</span>
+common
+<span class="token operator">|</span><span class="token operator">-</span> __init__<span class="token punctuation">.</span>py
+<span class="token operator">|</span><span class="token operator">-</span> config<span class="token punctuation">.</span>py
+<span class="token operator">|</span><span class="token operator">-</span> db<span class="token punctuation">.</span>py
+<span class="token operator">|</span><span class="token operator">-</span> redis<span class="token punctuation">.</span>py
+data
+<span class="token operator">|</span><span class="token operator">-</span> topics<span class="token punctuation">.</span>json
+config<span class="token punctuation">.</span>yaml
+fetch_topics_to_json_file<span class="token punctuation">.</span>py
+create_topic_novel_relation<span class="token punctuation">.</span>py
+
+<span class="token comment"># config.yaml</span>
+redis<span class="token punctuation">:</span>
+  main<span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+    port<span class="token punctuation">:</span> <span class="token number">6379</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span>
+
+db<span class="token punctuation">:</span>
+  log_mode<span class="token punctuation">:</span> true
+  main<span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+    port<span class="token punctuation">:</span> <span class="token number">3306</span>
+    user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span>
+    database<span class="token punctuation">:</span> <span class="token string">'test_novel'</span>
+  management<span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+    port<span class="token punctuation">:</span> <span class="token number">3306</span>
+    user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span>
+    database<span class="token punctuation">:</span> <span class="token string">'test_management'</span>
+  report<span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+    port<span class="token punctuation">:</span> <span class="token number">3306</span>
+    user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span>
+    database<span class="token punctuation">:</span> <span class="token string">'test_novel_report'</span>
+  pasta<span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+    port<span class="token punctuation">:</span> <span class="token number">3306</span>
+    user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span>
+    database<span class="token punctuation">:</span> <span class="token string">'test_pasta'</span>
+  stats<span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+    port<span class="token punctuation">:</span> <span class="token number">3306</span>
+    user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span>
+    database<span class="token punctuation">:</span> <span class="token string">'test_novel_stat'</span>
+  financial<span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+    port<span class="token punctuation">:</span> <span class="token number">3306</span>
+    user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span>
+    database<span class="token punctuation">:</span> <span class="token string">'test_financial'</span>
+
+db_sharding<span class="token punctuation">:</span>
+  readlog<span class="token punctuation">:</span>
+    instances<span class="token punctuation">:</span>
+      <span class="token operator">-</span>
+        host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+        port<span class="token punctuation">:</span> <span class="token number">3306</span>
+        user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+        password<span class="token punctuation">:</span> <span class="token string">''</span>
+    db_count<span class="token punctuation">:</span> <span class="token number">2</span>
+    db_name<span class="token punctuation">:</span> <span class="token string">'test_read_log'</span>
+    db_per_instance<span class="token punctuation">:</span> <span class="token number">2</span>
+    table_name_prefix<span class="token punctuation">:</span> <span class="token string">'tbl_read_log_'</span>
+    table_count<span class="token punctuation">:</span> <span class="token number">8</span>
+
+  consume<span class="token punctuation">:</span>
+    instances<span class="token punctuation">:</span>
+      <span class="token operator">-</span>
+        host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+        port<span class="token punctuation">:</span> <span class="token number">3306</span>
+        user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+        password<span class="token punctuation">:</span> <span class="token string">''</span>
+    db_count<span class="token punctuation">:</span> <span class="token number">2</span>
+    db_name<span class="token punctuation">:</span> <span class="token string">'test_consume'</span>
+    db_per_instance<span class="token punctuation">:</span> <span class="token number">2</span>
+    table_name_prefix<span class="token punctuation">:</span> <span class="token string">'tbl_consume_'</span>
+    table_count<span class="token punctuation">:</span> <span class="token number">8</span>
+
+  welth_coupon<span class="token punctuation">:</span>
+    instances<span class="token punctuation">:</span>
+      <span class="token operator">-</span>
+        host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+        port<span class="token punctuation">:</span> <span class="token number">3306</span>
+        user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+        password<span class="token punctuation">:</span> <span class="token string">''</span>
+    db_count<span class="token punctuation">:</span> <span class="token number">2</span>
+    db_name<span class="token punctuation">:</span> <span class="token string">'test_welth_coupon'</span>
+    db_per_instance<span class="token punctuation">:</span> <span class="token number">2</span>
+    table_name_prefix<span class="token punctuation">:</span> <span class="token string">'tbl_welth_coupon_'</span>
+    table_count<span class="token punctuation">:</span> <span class="token number">8</span>
+
+  welth_log<span class="token punctuation">:</span>
+    instances<span class="token punctuation">:</span>
+      <span class="token operator">-</span>
+        host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+        port<span class="token punctuation">:</span> <span class="token number">3306</span>
+        user<span class="token punctuation">:</span> <span class="token string">'novel_test'</span>
+        password<span class="token punctuation">:</span> <span class="token string">''</span>
+    db_count<span class="token punctuation">:</span> <span class="token number">2</span>
+    db_name<span class="token punctuation">:</span> <span class="token string">'test_welth_log'</span>
+    db_per_instance<span class="token punctuation">:</span> <span class="token number">2</span>
+    table_name_prefix<span class="token punctuation">:</span> <span class="token string">'tbl_welth_log_'</span>
+    table_count<span class="token punctuation">:</span> <span class="token number">8</span>
+
+<span class="token comment"># config.py</span>
+<span class="token keyword">import</span> yaml
+
+<span class="token keyword">def</span> <span class="token function">get_config</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    stream <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'config.yaml'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> yaml<span class="token punctuation">.</span>load<span class="token punctuation">(</span>stream<span class="token punctuation">,</span> Loader<span class="token operator">=</span>yaml<span class="token punctuation">.</span>FullLoader<span class="token punctuation">)</span>
+
+<span class="token comment"># db.py</span>
+<span class="token keyword">import</span> pymysql
+<span class="token keyword">from</span> common <span class="token keyword">import</span> config
+
+<span class="token keyword">def</span> <span class="token function">get_connection</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    c <span class="token operator">=</span> config<span class="token punctuation">.</span>get_config<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    db_config <span class="token operator">=</span> c<span class="token punctuation">[</span><span class="token string">'db'</span><span class="token punctuation">]</span><span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span>db_config<span class="token punctuation">[</span><span class="token string">'host'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                             user<span class="token operator">=</span>db_config<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                             password<span class="token operator">=</span>db_config<span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                             db<span class="token operator">=</span>db_config<span class="token punctuation">[</span><span class="token string">'database'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                             charset<span class="token operator">=</span><span class="token string">'utf8mb4'</span><span class="token punctuation">,</span>
+                             cursorclass<span class="token operator">=</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">insert</span><span class="token punctuation">(</span>cursor<span class="token punctuation">,</span> table<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    placeholders <span class="token operator">=</span> <span class="token string">', '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'%s'</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    columns <span class="token operator">=</span> <span class="token string">', '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">map</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token string-interpolation"><span class="token string">f'`</span><span class="token interpolation"><span class="token punctuation">{</span>x<span class="token punctuation">}</span></span><span class="token string">`'</span></span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> value <span class="token keyword">in</span> data<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        values<span class="token punctuation">.</span>append<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+    cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f&quot;INSERT INTO </span><span class="token interpolation"><span class="token punctuation">{</span>table<span class="token punctuation">}</span></span><span class="token string"> (</span><span class="token interpolation"><span class="token punctuation">{</span>columns<span class="token punctuation">}</span></span><span class="token string">) VALUES (</span><span class="token interpolation"><span class="token punctuation">{</span>placeholders<span class="token punctuation">}</span></span><span class="token string">)&quot;</span></span><span class="token punctuation">,</span> values<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">find_all</span><span class="token punctuation">(</span>cursor<span class="token punctuation">,</span> sql<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">find_one</span><span class="token punctuation">(</span>cursor<span class="token punctuation">,</span> sql<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> cursor<span class="token punctuation">.</span>fetchone<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># redis.py</span>
+<span class="token keyword">from</span> common <span class="token keyword">import</span> config
+<span class="token keyword">import</span> redis
+
+<span class="token keyword">def</span> <span class="token function">get_client</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    c <span class="token operator">=</span> config<span class="token punctuation">.</span>get_config<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    redis_config <span class="token operator">=</span> c<span class="token punctuation">[</span><span class="token string">'redis'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'main'</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> redis<span class="token punctuation">.</span>Redis<span class="token punctuation">(</span>host<span class="token operator">=</span>redis_config<span class="token punctuation">[</span><span class="token string">'host'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> port<span class="token operator">=</span>redis_config<span class="token punctuation">[</span><span class="token string">'port'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> db<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> password<span class="token operator">=</span>redis_config<span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># fetch_topics_to_json_file.py</span>
+<span class="token keyword">from</span> common <span class="token keyword">import</span> utils<span class="token punctuation">,</span> db
+
+<span class="token triple-quoted-string string">&quot;&quot;&quot;
+导出所有专题数据到json文件
+&quot;&quot;&quot;</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    connection <span class="token operator">=</span> db<span class="token punctuation">.</span>get_connection<span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+            result <span class="token operator">=</span> db<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>cursor<span class="token punctuation">,</span> <span class="token string">&quot;SELECT * FROM tbl_topic&quot;</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> item <span class="token keyword">in</span> result<span class="token punctuation">:</span>
+                <span class="token keyword">del</span> item<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+                <span class="token keyword">del</span> item<span class="token punctuation">[</span><span class="token string">'created_at'</span><span class="token punctuation">]</span>
+                <span class="token keyword">del</span> item<span class="token punctuation">[</span><span class="token string">'updated_at'</span><span class="token punctuation">]</span>
+                <span class="token keyword">del</span> item<span class="token punctuation">[</span><span class="token string">'effected_at'</span><span class="token punctuation">]</span>
+                <span class="token keyword">del</span> item<span class="token punctuation">[</span><span class="token string">'expired_at'</span><span class="token punctuation">]</span>
+                <span class="token keyword">del</span> item<span class="token punctuation">[</span><span class="token string">'location_id'</span><span class="token punctuation">]</span>
+                <span class="token keyword">del</span> item<span class="token punctuation">[</span><span class="token string">'page_ids'</span><span class="token punctuation">]</span>
+
+            utils<span class="token punctuation">.</span>write_json_to_file<span class="token punctuation">(</span><span class="token string">'data/topics.json'</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        connection<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># create_topic_novel_relation.py</span>
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> random
+<span class="token keyword">from</span> common <span class="token keyword">import</span> utils<span class="token punctuation">,</span> db
+
+<span class="token triple-quoted-string string">&quot;&quot;&quot;
+创建专题和小说的关联数据
+&quot;&quot;&quot;</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    connection <span class="token operator">=</span> db<span class="token punctuation">.</span>get_connection<span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;TRUNCATE tbl_topic_novel_relation&quot;</span><span class="token punctuation">)</span>
+
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;SELECT id, title FROM tbl_novels&quot;</span><span class="token punctuation">)</span>
+            db_novels <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;SELECT id, title FROM tbl_topic&quot;</span><span class="token punctuation">)</span>
+            db_topics <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">for</span> topic <span class="token keyword">in</span> db_topics<span class="token punctuation">:</span>
+                novels <span class="token operator">=</span> random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>db_novels<span class="token punctuation">,</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f&quot;开始给专题</span><span class="token interpolation"><span class="token punctuation">{</span>topic<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">添加小说&quot;</span></span><span class="token punctuation">)</span>
+
+                index <span class="token operator">=</span> <span class="token number">1</span>
+                <span class="token keyword">for</span> novel <span class="token keyword">in</span> novels<span class="token punctuation">:</span>
+                    db<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>cursor<span class="token punctuation">,</span> <span class="token string">'tbl_topic_novel_relation'</span><span class="token punctuation">,</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>topic_id<span class="token operator">=</span>topic<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> novel_id<span class="token operator">=</span>novel<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sort_order<span class="token operator">=</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    index <span class="token operator">=</span> index <span class="token operator">+</span> <span class="token number">1</span>
+
+            connection<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        connection<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次编辑时间:</span> <span class="time">12/3/2020, 5:14:49 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/qa-docs/code/python.html" class="prev">
+        Python 基础
+      </a></span> <span class="next"><a href="/qa-docs/code/selenium.html">
+        Selenium WebDriver 框架
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/qa-docs/assets/js/app.2bd587af.js" defer></script><script src="/qa-docs/assets/js/2.55548560.js" defer></script><script src="/qa-docs/assets/js/20.43affe03.js" defer></script>
+  </body>
+</html>
