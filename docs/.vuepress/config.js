@@ -79,11 +79,11 @@ module.exports = {
               {
                 title: '读书笔记',
                 children: [
+                  '/notes/english.md',
                   '/notes/2021-03.md',
                   '/notes/2020-10.md',
                   '/notes/2020-09.md',
                   '/notes/2020-08.md',       
-                  '/notes/english.md'
                 ]
               },
             ]
