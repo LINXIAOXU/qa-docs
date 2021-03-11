@@ -69,11 +69,16 @@ module.exports = {
               {
                 title: 'Linux学习',
                 children: [
-                  '/linux/other.md',
-                  '/linux/find.md',
-                  '/linux/grep.md',
-                  '/linux/awk.md',
-                  '/linux/sed.md'
+                  '/linux/os-basic.md',
+                  '/linux/os-develop.md',
+                  '/linux/difference.md',
+                  '/linux/basic-command.md',
+                  '/linux/help-docs.md',
+                  '/linux/docs-use.md',
+                  '/linux/remote.md',
+                  '/linux/user-permissions.md',
+                  '/linux/system.md',
+                  '/linux/other-command.md'
                 ]
               },
               {
