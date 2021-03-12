@@ -8,5 +8,8 @@
     "docs:build": "vuepress build docs",
     "build": "babel src -d lib",
     "test": "jest"
+  },
+  "dependencies": {
+    "markmap": "^0.6.1"
   }
 }
