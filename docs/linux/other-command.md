@@ -73,7 +73,7 @@ find -name "1*"
 
 #### 文件软硬链接的示意图
 
-![001_文件软硬链接示意图](../assets/linux/001_文件软硬链接示意图.png)
+![001_文件软硬链接示意图](../assets/linux/file-link.png)
 
 > 在 Linux 中，**文件名** 和 **文件的数据** 是分开存储的
 
@@ -204,10 +204,10 @@ $ sudo apt install htop
 
 > 所谓镜像源，就是**所有服务器的内容是相同的（镜像）**，但是根据所在位置不同，国内服务器通常速度会更快一些！
 
-![003_镜像服务器示意图](../assets/linux/003_镜像服务器示意图.png)
+![003_镜像服务器示意图](../assets/linux/image-service.png)
 
 
-![001_ubuntu设置软件源](../assets/linux/001_ubuntu设置软件源.png)
+![001_ubuntu设置软件源](../assets/linux/set-source.png)
 
 
 

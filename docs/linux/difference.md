@@ -14,21 +14,21 @@
 
 * 在 `Windows` 下，打开 “计算机”，我们看到的是一个个的驱动器盘符：
 
-![001_Windows下的多个盘](../assets/linux/001_Windows下的多个盘.png)
+![001_Windows下的多个盘](../assets/linux/drive-letter.png)
 
 * 每个驱动器都有自己的根目录结构，这样形成了多个树并列的情形，如图所示：
 
-![001-Windows下多个盘为节点的目录分支](../assets/linux/001-Windows下多个盘为节点的目录分支.png)
+![001-Windows下多个盘为节点的目录分支](../assets/linux/directory-branch.png)
 
 ### 2.2 `Linux` 下的文件系统
 
 * 在 `Linux` 下，我们是看不到这些驱动器盘符，我们看到的是文件夹（目录）：
 
-![002_Ubuntu文件目录](../assets/linux/002_Ubuntu文件目录.png)
+![002_Ubuntu文件目录](../assets/linux/linux-directory.png)
 
 * `Ubuntu` 没有盘符这个概念，只有一个根目录 `/`，所有文件都在它下面
 
-![003-Linux的树形示意图](../assets/linux/003-Linux的树形示意图.png)
+![003-Linux的树形示意图](../assets/linux/linux-tree.png)
 
 ### 2.3 用户目录
 
